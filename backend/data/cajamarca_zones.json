@@ -1,0 +1,214 @@
+{
+  "map_center": {
+    "lat": -7.1638,
+    "lon": -78.5003,
+    "zoom": 11,
+    "label": "Valle y Provincia de Cajamarca, Perú"
+  },
+  "beacon_parcels": [
+    {
+      "id": "banos_inca_llacanora",
+      "name": "Piso de Valle — Baños del Inca / Llacanora",
+      "short_name": "Baños del Inca / Llacanora",
+      "zone_type": "Piso de Valle Aluvial",
+      "lat": -7.1725,
+      "lon": -78.4630,
+      "elevation_m": 2675,
+      "slope_pct": 3.2,
+      "area_ha": 4.8,
+      "soil_texture": "Franco arcilloso profundo (aluvial)",
+      "water_default": "riego_gravedad",
+      "current_crop_default": "papa_maiz",
+      "frost_risk_window": "Junio – Agosto (heladas radiativas nocturnas por inversión térmica en fondo de valle)",
+      "primary_hazard": "Heladas radiativas de estiaje y agotamiento de nitrógeno por secuencia intensiva papa–maíz",
+      "description": "Terreno plano en la cuenca lechera y papera del valle de Cajamarca (pendiente 2–4%), con acceso parcial a canales de riego por gravedad. Alta exposición a aire frío nocturno entre junio y agosto.",
+      "polygon": [
+        [-7.1708, -78.4646],
+        [-7.1705, -78.4614],
+        [-7.1739, -78.4611],
+        [-7.1743, -78.4643]
+      ],
+      "calibrated_monthly": {
+        "t2m_c": [14.8, 14.6, 14.5, 14.3, 13.8, 13.1, 12.9, 13.5, 14.2, 14.7, 14.9, 14.8],
+        "t2m_min_c": [7.2, 7.3, 7.1, 6.2, 3.6, 1.4, 0.8, 1.5, 3.8, 5.9, 6.5, 6.9],
+        "precip_mm": [98.0, 114.0, 136.0, 86.0, 34.0, 14.0, 11.0, 13.0, 38.0, 82.0, 88.0, 94.0],
+        "solar_mj_m2_day": [17.8, 17.2, 16.9, 17.6, 18.7, 19.6, 20.1, 20.4, 19.9, 19.1, 18.9, 18.2],
+        "rh2m_pct": [76.0, 79.0, 81.0, 78.0, 71.0, 64.0, 60.0, 58.0, 63.0, 71.0, 72.0, 75.0]
+      }
+    },
+    {
+      "id": "encanada_combayo",
+      "name": "Ladera Interandina — La Encañada / Combayo",
+      "short_name": "La Encañada / Combayo",
+      "zone_type": "Ladera Alta (>3,300 m s.n.m.)",
+      "lat": -7.0850,
+      "lon": -78.3420,
+      "elevation_m": 3360,
+      "slope_pct": 21.5,
+      "area_ha": 3.4,
+      "soil_texture": "Franco arenoso superficial en ladera",
+      "water_default": "secano",
+      "current_crop_default": "monocultivo_papa",
+      "frost_risk_window": "Mayo – Septiembre (altitud >3,300 m con riesgo frecuente < 0 °C)",
+      "primary_hazard": "Erosión hídrica severa por lluvias intensas (GPM) cuando la ladera queda desnuda tras cosecha de papa",
+      "description": "Parcela altoandina sobre 3,360 m s.n.m. con pendiente pronunciada (18–24%). Tras la cosecha de papa en marzo–abril, las lluvias torrenciales de cierre e inicio de campaña arrastran capa arable si no existe cobertura vegetal.",
+      "polygon": [
+        [-7.0835, -78.3435],
+        [-7.0833, -78.3406],
+        [-7.0864, -78.3404],
+        [-7.0867, -78.3433]
+      ],
+      "calibrated_monthly": {
+        "t2m_c": [10.4, 10.2, 10.1, 9.9, 9.3, 8.6, 8.4, 9.0, 9.7, 10.3, 10.5, 10.4],
+        "t2m_min_c": [4.1, 4.2, 4.0, 3.1, 0.9, -0.8, -1.2, -0.5, 1.4, 3.0, 3.4, 3.8],
+        "precip_mm": [116.0, 138.0, 162.0, 102.0, 44.0, 18.0, 14.0, 18.0, 46.0, 96.0, 105.0, 112.0],
+        "solar_mj_m2_day": [16.9, 16.4, 16.1, 17.0, 18.3, 19.3, 19.9, 20.1, 19.4, 18.5, 18.1, 17.3],
+        "rh2m_pct": [81.0, 84.0, 86.0, 82.0, 76.0, 69.0, 66.0, 64.0, 70.0, 77.0, 78.0, 80.0]
+      }
+    },
+    {
+      "id": "namora_matara",
+      "name": "Zona de Secano Sur — Namora / Matara",
+      "short_name": "Namora / Matara",
+      "zone_type": "Ladera Media de Secano",
+      "lat": -7.2050,
+      "lon": -78.3210,
+      "elevation_m": 2845,
+      "slope_pct": 9.4,
+      "area_ha": 5.2,
+      "soil_texture": "Franco limoso con baja retención hídrica",
+      "water_default": "secano",
+      "current_crop_default": "papa_maiz",
+      "frost_risk_window": "Junio – Agosto (descensos térmicos moderados en noches despejadas)",
+      "primary_hazard": "Déficit hídrico estacional severo (mayo–septiembre) y vulnerabilidad a veranillos térmicos",
+      "description": "Agricultura estrictamente de secano dependiente del régimen de lluvias. Entre mayo y septiembre presenta fuerte agotamiento de humedad SMAP y estrés térmico por radiación.",
+      "polygon": [
+        [-7.2032, -78.3230],
+        [-7.2030, -78.3191],
+        [-7.2067, -78.3189],
+        [-7.2069, -78.3228]
+      ],
+      "calibrated_monthly": {
+        "t2m_c": [14.1, 13.9, 13.8, 13.7, 13.2, 12.6, 12.5, 13.1, 13.8, 14.3, 14.5, 14.3],
+        "t2m_min_c": [6.4, 6.5, 6.3, 5.4, 3.2, 1.7, 1.3, 1.9, 3.6, 5.2, 5.7, 6.1],
+        "precip_mm": [84.0, 98.0, 118.0, 72.0, 24.0, 8.0, 6.0, 8.0, 26.0, 68.0, 74.0, 80.0],
+        "solar_mj_m2_day": [18.5, 17.9, 17.6, 18.4, 19.5, 20.3, 20.9, 21.2, 20.7, 19.9, 19.6, 18.9],
+        "rh2m_pct": [72.0, 75.0, 77.0, 73.0, 64.0, 56.0, 52.0, 50.0, 56.0, 65.0, 67.0, 70.0]
+      }
+    }
+  ],
+  "agroecological_belts_geojson": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "belt_valle",
+          "name": "Cinturón 1: Piso de Valle (Cajamarca – Baños del Inca – Llacanora)",
+          "elevation_band": "2,550 – 2,780 m s.n.m.",
+          "dominant_risk": "Heladas radiativas (Jun–Ago) y extracción intensiva",
+          "color": "#0EA5E9"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [-78.545, -7.135],
+            [-78.475, -7.140],
+            [-78.430, -7.172],
+            [-78.415, -7.215],
+            [-78.465, -7.222],
+            [-78.525, -7.190],
+            [-78.545, -7.135]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "belt_ladera_alta",
+          "name": "Cinturón 2: Ladera Alta y Jalca (La Encañada – Combayo)",
+          "elevation_band": "3,150 – 3,750 m s.n.m.",
+          "dominant_risk": "Erosión hídrica por tormentas GPM y heladas frecuentes",
+          "color": "#F59E0B"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [-78.435, -7.020],
+            [-78.280, -7.025],
+            [-78.265, -7.130],
+            [-78.385, -7.145],
+            [-78.440, -7.085],
+            [-78.435, -7.020]
+          ]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "belt_secano_sur",
+          "name": "Cinturón 3: Zona de Secano Sur (Namora – Matara)",
+          "elevation_band": "2,750 – 3,100 m s.n.m.",
+          "dominant_risk": "Déficit hídrico estacional (May–Sep) y estrés térmico",
+          "color": "#EF4444"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [-78.410, -7.165],
+            [-78.265, -7.160],
+            [-78.250, -7.260],
+            [-78.375, -7.265],
+            [-78.415, -7.220],
+            [-78.410, -7.165]
+          ]]
+        }
+      }
+    ]
+  },
+  "scientific_glossary": [
+    {
+      "id": "ndvi",
+      "term": "NDVI (Sentinel-2 / Landsat)",
+      "farmer_title": "Salud y cobertura verde de la chacra",
+      "farmer_explanation": "Mide qué tan tupido y vivo está el follaje desde el espacio (escala de 0 a 1). Cuando baja de 0.25 significa que la parcela está pelada o recién arada: sin raíces ni hojas que detengan la lluvia o el viento.",
+      "scientific_explanation": "Índice de Vegetación de Diferencia Normalizada ((NIR - RED)/(NIR + RED)) a 10 m en Sentinel-2. Valores < 0.25 identifican suelo desnudo o rastrojo escaso con alto factor C de erosión USLE."
+    },
+    {
+      "id": "et0",
+      "term": "Evapotranspiración (ECOSTRESS / NASA POWER)",
+      "farmer_title": "Cuánta agua 'bebe' o pierde el campo al día",
+      "farmer_explanation": "Es la suma del agua que se evapora de la tierra caliente y la que transpira el cultivo por sus hojas. Si supera a la lluvia del mes, el cultivo entra en sed y necesita riego o especies más rústicas como quinua o tarwi.",
+      "scientific_explanation": "Demanda atmosférica de agua (ET0 en mm/mes) derivada de radiación solar (ALLSKY_SFC_SW_DWN), temperatura y humedad relativa (RH2M), complementada por estrés térmico superficial LST de ECOSTRESS."
+    },
+    {
+      "id": "smap",
+      "term": "Anomalía de Humedad SMAP",
+      "farmer_title": "Reserva de humedad en la capa superficial del suelo",
+      "farmer_explanation": "El satélite SMAP detecta cuánta agua queda guardada en los primeros 5 cm de tierra. Valores negativos muestran que el suelo está más seco de lo normal para ese mes, señal temprana de sequía agrícola antes de que la planta se marchite.",
+      "scientific_explanation": "Humedad volumétrica superficial (m³/m³) por radiometría en banda L cada 2–3 días (resolución ~9 km), expresada como desviación estandarizada (Z-score) respecto a la media climática mensual."
+    },
+    {
+      "id": "frost",
+      "term": "Riesgo de Heladas (NASA POWER T2M_MIN)",
+      "farmer_title": "Noches de frío extremo que queman el cultivo",
+      "farmer_explanation": "Indica los meses donde el termómetro nocturno cae cerca de 0 °C a 2 °C. En pisos planos como Baños del Inca el aire frío se empoza de madrugada (helada blanca o negra), dañando papa y maíz, pero no afecta tanto a la avena+vicia o quinua.",
+      "scientific_explanation": "Temperatura mínima del aire a 2 metros (T2M_MIN) reducida topográficamente (-6.5 °C/1000 m + acumulación catabática en depresiones de valle con pendiente < 5%)."
+    },
+    {
+      "id": "gpm_srtm",
+      "term": "Tormentas GPM IMERG y Pendiente SRTM",
+      "farmer_title": "Fuerza con la que la lluvia lava la tierra en ladera",
+      "farmer_explanation": "GPM cuenta los aguaceros fuertes y SRTM mide qué tan empinada es la chacra. Aguaceros fuertes sobre tierra desnuda y empinada arrastran la mejor capa fértil hacia la quebrada.",
+      "scientific_explanation": "Frecuencia mensual de eventos convectivos intensos (GPM IMERG >20 mm/día) acoplada al gradiente topográfico de 30 m (SRTM) para ponderar escorrentía y pérdida potencial de suelo."
+    },
+    {
+      "id": "sat_vs_ground",
+      "term": "Satélite vs. Medición en Tierra",
+      "farmer_title": "Por qué el satélite no reemplaza caminar la chacra",
+      "farmer_explanation": "Los satélites ven promedios de temperatura, lluvia y verde desde el cielo (algunos en cuadrículas de varios kilómetros), pero NO ven la acidez (pH) del suelo, si la tierra está dura por dentro ni el precio real en el mercado de Cajamarca.",
+      "scientific_explanation": "Armonización multiescala entre grillas climáticas (~50 km POWER, ~9–10 km SMAP/GPM) y sensores locales (30 m SRTM, 10 m Sentinel-2). La incertidumbre sub-parcela exige validación edáfica y económica humana (Human-in-the-Loop)."
+    }
+  ]
+}
+

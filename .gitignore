@@ -1,0 +1,30 @@
+# Secrets and environment variables
+.env
+**/.env
+*.pem
+*.key
+.netrc
+
+# Python virtual environment and cache
+backend/.venv/
+backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Heavy downloaded satellite rasters / earthdata bundles
+backend/cache/*.tif
+backend/cache/*.tiff
+backend/cache/*.nc
+backend/cache/*.h5
+backend/cache/*.hdf
+
+# Mobile / JS dependencies & native build outputs
+**/node_modules/
+**/.expo/
+**/dist/
+*.apk
+*.aab
+
+# OS / IDE
+.DS_Store
+Thumbs.db

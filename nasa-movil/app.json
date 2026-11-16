@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "AgroClima NASA Cajamarca",
+    "slug": "nasa-movil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "androidStatusBar": {
+      "backgroundColor": "#162B19",
+      "barStyle": "light-content"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Necesitamos tu ubicacion GPS para identificar altitud SRTM, pendiente y suelo de tu parcela en Cajamarca.",
+        "NSMicrophoneUsageDescription": "Necesitamos acceso al microfono para escuchar tus preguntas de voz sobre tu chacra y cultivos."
+      }
+    },
+    "android": {
+      "package": "com.agrocajamarca.nasamovil",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "RECORD_AUDIO"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#162B19",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

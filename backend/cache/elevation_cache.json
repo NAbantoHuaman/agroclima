@@ -1,0 +1,642 @@
+{
+  "-7.085,-78.342,0": {
+    "elevation_m": 3104.0,
+    "slope_pct": 11.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.173,-78.463,0": {
+    "elevation_m": 2662.0,
+    "slope_pct": 10.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.029,-78.349,0": {
+    "elevation_m": 3485.0,
+    "slope_pct": 25.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.064,-78.344,0": {
+    "elevation_m": 3317.0,
+    "slope_pct": 20.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.064,-78.346,0": {
+    "elevation_m": 3401.0,
+    "slope_pct": 24.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.064,-78.336,0": {
+    "elevation_m": 3242.0,
+    "slope_pct": 23.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.202,-78.281,0": {
+    "elevation_m": 2932.0,
+    "slope_pct": 28.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.065,-78.266,0": {
+    "elevation_m": 3563.0,
+    "slope_pct": 9.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.105,-78.273,0": {
+    "elevation_m": 3380.0,
+    "slope_pct": 15.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.068,-78.269,0": {
+    "elevation_m": 3545.0,
+    "slope_pct": 5.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.230,-78.444,0": {
+    "elevation_m": 2723.0,
+    "slope_pct": 17.8,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.294,-78.451,0": {
+    "elevation_m": 3137.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.294,-78.399,0": {
+    "elevation_m": 3445.0,
+    "slope_pct": 12.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.357,-78.374,0": {
+    "elevation_m": 4058.0,
+    "slope_pct": 4.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.197,-77.600,0": {
+    "elevation_m": 3565.0,
+    "slope_pct": 16.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.092,-77.607,0": {
+    "elevation_m": 4049.0,
+    "slope_pct": 41.9,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.839,0": {
+    "elevation_m": 3537.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.179,-77.333,0": {
+    "elevation_m": 2988.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.009,-78.578,0": {
+    "elevation_m": 3600.0,
+    "slope_pct": 11.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.839,-78.572,0": {
+    "elevation_m": 3541.0,
+    "slope_pct": 18.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.780,-78.015,0": {
+    "elevation_m": 3016.0,
+    "slope_pct": 21.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.017,-77.850,0": {
+    "elevation_m": 3029.0,
+    "slope_pct": 9.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-5.521,-78.278,0": {
+    "elevation_m": 1799.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.619,-78.046,0": {
+    "elevation_m": 2662.0,
+    "slope_pct": 9.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.612,-78.034,0": {
+    "elevation_m": 2844.0,
+    "slope_pct": 14.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.586,0": {
+    "elevation_m": 3767.0,
+    "slope_pct": 18.9,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.361,0": {
+    "elevation_m": 2296.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.353,0": {
+    "elevation_m": 2610.0,
+    "slope_pct": 41.5,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.341,0": {
+    "elevation_m": 3063.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.326,0": {
+    "elevation_m": 3608.0,
+    "slope_pct": 35.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.312,0": {
+    "elevation_m": 2844.0,
+    "slope_pct": 41.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.300,0": {
+    "elevation_m": 2814.0,
+    "slope_pct": 17.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.372,0": {
+    "elevation_m": 1750.0,
+    "slope_pct": 41.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.383,-78.026,0": {
+    "elevation_m": 2403.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.718,-78.630,0": {
+    "elevation_m": 2080.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.660,-78.992,0": {
+    "elevation_m": 679.0,
+    "slope_pct": 33.9,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-5.935,-78.029,0": {
+    "elevation_m": 2092.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.149,-78.510,0": {
+    "elevation_m": 2701.0,
+    "slope_pct": 1.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.094,-78.535,0": {
+    "elevation_m": 3241.0,
+    "slope_pct": 16.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.062,-78.551,0": {
+    "elevation_m": 3459.0,
+    "slope_pct": 17.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.000,-78.517,0": {
+    "elevation_m": 3962.0,
+    "slope_pct": 37.5,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.164,-78.500,0": {
+    "elevation_m": 2685.0,
+    "slope_pct": 1.8,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.992,-78.518,0": {
+    "elevation_m": 4021.0,
+    "slope_pct": 35.9,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.645,-77.991,0": {
+    "elevation_m": 3507.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.691,-77.891,0": {
+    "elevation_m": 3992.0,
+    "slope_pct": 40.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.251,-77.788,0": {
+    "elevation_m": 3781.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.500,-77.745,0": {
+    "elevation_m": 4226.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.824,-78.865,0": {
+    "elevation_m": 3263.0,
+    "slope_pct": 1.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.040,-78.630,0": {
+    "elevation_m": 3174.0,
+    "slope_pct": 24.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-5.708,-78.808,0": {
+    "elevation_m": 735.0,
+    "slope_pct": 5.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.160,-78.510,0": {
+    "elevation_m": 2703.0,
+    "slope_pct": 2.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-13.530,-71.970,0": {
+    "elevation_m": 3347.0,
+    "slope_pct": 4.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.150,-78.471,0": {
+    "elevation_m": 2676.0,
+    "slope_pct": 2.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.181,-78.312,0": {
+    "elevation_m": 3005.0,
+    "slope_pct": 7.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.979,-77.765,0": {
+    "elevation_m": 3441.0,
+    "slope_pct": 16.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-8.005,-77.637,0": {
+    "elevation_m": 1735.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-5.478,-79.405,0": {
+    "elevation_m": 1629.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.189,-79.294,0": {
+    "elevation_m": 3124.0,
+    "slope_pct": 42.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-5.225,-79.904,0": {
+    "elevation_m": 160.0,
+    "slope_pct": 3.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.163,-78.510,0": {
+    "elevation_m": 2706.0,
+    "slope_pct": 3.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.988,-78.506,0": {
+    "elevation_m": 4042.0,
+    "slope_pct": 24.8,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.678,-78.522,0": {
+    "elevation_m": 2536.0,
+    "slope_pct": 19.9,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.165,-78.506,0": {
+    "elevation_m": 2703.0,
+    "slope_pct": 3.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.152,-78.484,0": {
+    "elevation_m": 2667.0,
+    "slope_pct": 1.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-6.945,-78.206,0": {
+    "elevation_m": 3295.0,
+    "slope_pct": 6.6,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.136,-78.508,0": {
+    "elevation_m": 2699.0,
+    "slope_pct": 1.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.050,-78.580,0": {
+    "elevation_m": 3612.0,
+    "slope_pct": 20.1,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.173,-78.491,0": {
+    "elevation_m": 2676.0,
+    "slope_pct": 2.8,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.171,-78.495,0": {
+    "elevation_m": 2683.0,
+    "slope_pct": 2.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.169,-78.487,0": {
+    "elevation_m": 2664.0,
+    "slope_pct": 1.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.175,-78.492,0": {
+    "elevation_m": 2682.0,
+    "slope_pct": 2.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.176,-78.489,0": {
+    "elevation_m": 2675.0,
+    "slope_pct": 3.5,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.173,-78.488,0": {
+    "elevation_m": 2668.0,
+    "slope_pct": 2.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.170,-78.494,0": {
+    "elevation_m": 2677.0,
+    "slope_pct": 1.3,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.163,-78.481,0": {
+    "elevation_m": 2660.0,
+    "slope_pct": 1.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.172,-78.475,0": {
+    "elevation_m": 2648.0,
+    "slope_pct": 1.0,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.171,-78.480,0": {
+    "elevation_m": 2654.0,
+    "slope_pct": 1.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.173,-78.473,0": {
+    "elevation_m": 2646.0,
+    "slope_pct": 1.4,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.173,-78.493,0": {
+    "elevation_m": 2684.0,
+    "slope_pct": 2.7,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  },
+  "-7.120,-78.420,0": {
+    "elevation_m": 3114.0,
+    "slope_pct": 25.2,
+    "source": "open_meteo_cop90",
+    "mode": "en_vivo",
+    "sensor_label": "Copernicus DEM GLO-90 (Open-Meteo)",
+    "resolution": "~90 m en vivo (grilla local de pendiente)"
+  }
+}

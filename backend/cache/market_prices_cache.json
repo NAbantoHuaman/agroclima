@@ -1,0 +1,1681 @@
+{
+  "fetched_at": "2026-11-15T18:22:55-05:00",
+  "fetched_epoch": 1794784975.3580682,
+  "cache_hit": false,
+  "mode": "en_vivo",
+  "sisap_regions": {
+    "060000": {
+      "code": "060000",
+      "name": "Cajamarca",
+      "products": {
+        "Ajo criollo o napuri": {
+          "product": "Ajo criollo o napuri",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 5.43,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 62.5
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.5
+          }
+        },
+        "Arveja verde blanca serrana": {
+          "product": "Arveja verde blanca serrana",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.39,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 85.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 10.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 10.0
+          }
+        },
+        "Cebolla cabeza roja": {
+          "product": "Cebolla cabeza roja",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.25,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.25
+          }
+        },
+        "Frijol canario": {
+          "product": "Frijol canario",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 8.7,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 100.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 10.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 10.0
+          }
+        },
+        "Frijol castilla": {
+          "product": "Frijol castilla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 5.22,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 60.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 8.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.0
+          }
+        },
+        "Garbanzo": {
+          "product": "Garbanzo",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.5
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 9.0
+          }
+        },
+        "Haba verde serrana": {
+          "product": "Haba verde serrana",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.35,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 50.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.0
+          }
+        },
+        "Lenteja": {
+          "product": "Lenteja",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.39,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 85.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 9.0
+          }
+        },
+        "Olluco largo": {
+          "product": "Olluco largo",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.35,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 50.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.0
+          }
+        },
+        "Olluco redondo": {
+          "product": "Olluco redondo",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.09,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 70.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 8.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.0
+          }
+        },
+        "Palta criolla": {
+          "product": "Palta criolla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.94,
+            "unit": "Ciento",
+            "equiv_kg": 34.0,
+            "raw_price": 100.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.0
+          }
+        },
+        "Palta fuerte": {
+          "product": "Palta fuerte",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.46,
+            "unit": "Ciento1",
+            "equiv_kg": 24.0,
+            "raw_price": 155.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 9.0
+          }
+        },
+        "Papa amarilla": {
+          "product": "Papa amarilla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.04,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 35.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.0
+          }
+        },
+        "Papa canchan": {
+          "product": "Papa canchan",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.87,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 33.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          }
+        },
+        "Papa huayro": {
+          "product": "Papa huayro",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.43,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 28.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.25,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.25
+          }
+        },
+        "Papa peruanita": {
+          "product": "Papa peruanita",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.61,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 30.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          }
+        },
+        "Papa yungay": {
+          "product": "Papa yungay",
+          "mayorista": {
+            "date": "06/11/2026",
+            "soles_kg": 1.74,
+            "unit": "Arroba",
+            "equiv_kg": 11.5,
+            "raw_price": 20.0
+          },
+          "minorista": {
+            "date": "06/11/2026",
+            "soles_kg": 2.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 2.5
+          }
+        }
+      }
+    },
+    "060401": {
+      "code": "060401",
+      "name": "Chota",
+      "products": {
+        "Ajo criollo o napuri": {
+          "product": "Ajo criollo o napuri",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 12.25,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 12.25
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 14.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 14.0
+          }
+        },
+        "Arveja verde blanca serrana": {
+          "product": "Arveja verde blanca serrana",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.75,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.75
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 10.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 10.0
+          }
+        },
+        "Cebolla cabeza roja": {
+          "product": "Cebolla cabeza roja",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.6,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 2.6
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.35,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.35
+          }
+        },
+        "Choclo (tipo cusco)": {
+          "product": "Choclo (tipo cusco)",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 5.75,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 5.75
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.5
+          }
+        },
+        "Frijol canario": {
+          "product": "Frijol canario",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 9.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 10.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 10.0
+          }
+        },
+        "Frijol castilla": {
+          "product": "Frijol castilla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 8.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 9.0
+          }
+        },
+        "Garbanzo": {
+          "product": "Garbanzo",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 7.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 8.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.5
+          }
+        },
+        "Haba verde serrana": {
+          "product": "Haba verde serrana",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 5.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 5.0
+          }
+        },
+        "Lenteja": {
+          "product": "Lenteja",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 5.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 5.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.0
+          }
+        },
+        "Olluco redondo": {
+          "product": "Olluco redondo",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.55,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.55
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.0
+          }
+        },
+        "Palta criolla": {
+          "product": "Palta criolla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.75,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.75
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 6.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.0
+          }
+        },
+        "Palta fuerte": {
+          "product": "Palta fuerte",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.6,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.6
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.55,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.55
+          }
+        },
+        "Papa amarilla": {
+          "product": "Papa amarilla",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.1,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.1
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 4.0,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.0
+          }
+        },
+        "Papa canchan": {
+          "product": "Papa canchan",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.8,
+            "unit": "Saco mediano",
+            "equiv_kg": 50.0,
+            "raw_price": 140.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          }
+        },
+        "Papa yungay": {
+          "product": "Papa yungay",
+          "mayorista": {
+            "date": "11/11/2026",
+            "soles_kg": 2.8,
+            "unit": "Saco mediano",
+            "equiv_kg": 50.0,
+            "raw_price": 140.0
+          },
+          "minorista": {
+            "date": "11/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          }
+        }
+      }
+    },
+    "060801": {
+      "code": "060801",
+      "name": "Jaén",
+      "products": {
+        "Ajo criollo o napuri": {
+          "product": "Ajo criollo o napuri",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 10.22,
+            "unit": "Saco normal",
+            "equiv_kg": 50.0,
+            "raw_price": 511.0
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 12.45,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 12.45
+          }
+        },
+        "Arveja verde blanca serrana": {
+          "product": "Arveja verde blanca serrana",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 9.0,
+            "unit": "Malla",
+            "equiv_kg": 100.0,
+            "raw_price": 900.0
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 11.88,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 11.88
+          }
+        },
+        "Cebolla cabeza roja": {
+          "product": "Cebolla cabeza roja",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 2.34,
+            "unit": "Malla",
+            "equiv_kg": 40.0,
+            "raw_price": 93.5
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 3.5,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.5
+          }
+        },
+        "Frijol canario": {
+          "product": "Frijol canario",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 8.2,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 410.0
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 8.85,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.85
+          }
+        },
+        "Frijol castilla": {
+          "product": "Frijol castilla",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 4.5,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 225.25
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 5.48,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 5.48
+          }
+        },
+        "Garbanzo": {
+          "product": "Garbanzo",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 7.18,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 359.25
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 8.65,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 8.65
+          }
+        },
+        "Haba verde serrana": {
+          "product": "Haba verde serrana",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 3.17,
+            "unit": "Malla",
+            "equiv_kg": 100.0,
+            "raw_price": 316.5
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 7.35,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.35
+          }
+        },
+        "Lenteja": {
+          "product": "Lenteja",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 4.37,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 218.25
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 6.3,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 6.3
+          }
+        },
+        "Olluco redondo": {
+          "product": "Olluco redondo",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 6.53,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 326.25
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 7.45,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 7.45
+          }
+        },
+        "Palta criolla": {
+          "product": "Palta criolla",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 3.48,
+            "unit": "Cajon",
+            "equiv_kg": 10.0,
+            "raw_price": 34.75
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 4.25,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 4.25
+          }
+        },
+        "Papa huayro": {
+          "product": "Papa huayro",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 2.71,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 135.75
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 3.15,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 3.15
+          }
+        },
+        "Papa yungay": {
+          "product": "Papa yungay",
+          "mayorista": {
+            "date": "13/11/2026",
+            "soles_kg": 1.91,
+            "unit": "Saco",
+            "equiv_kg": 50.0,
+            "raw_price": 95.5
+          },
+          "minorista": {
+            "date": "13/11/2026",
+            "soles_kg": 2.73,
+            "unit": "Kilogramo",
+            "equiv_kg": 1.0,
+            "raw_price": 2.73
+          }
+        }
+      }
+    }
+  },
+  "agromercado": {
+    "palta": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Palta Hass",
+        "valor": 5.45,
+        "etiqueta": "13/11/26"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/Kg",
+        "serie_nombre": "2026",
+        "valor": 1.78,
+        "etiqueta": "Sem 43"
+      }
+    },
+    "mango": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Mango Kent",
+        "valor": 4.23,
+        "etiqueta": "13/11/26"
+      },
+      "fob_usd_kg": {
+        "titulo": "Aéreo FOB US$/Kg",
+        "serie_nombre": "2026",
+        "valor": 3.52,
+        "etiqueta": "Sem 45"
+      }
+    },
+    "maracuya": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Maracuyá",
+        "valor": 4.09,
+        "etiqueta": "13/11/26"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/Kg",
+        "serie_nombre": "2026",
+        "valor": 3.56,
+        "etiqueta": "Sem 43"
+      }
+    },
+    "pina": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Piña Criolla",
+        "valor": 1.54,
+        "etiqueta": "13/11/26"
+      }
+    },
+    "quinua": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Quinua Blanca",
+        "valor": 9.83,
+        "etiqueta": "12/11/26"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/Kg",
+        "serie_nombre": "2026",
+        "valor": 2.88,
+        "etiqueta": "Sem 43"
+      }
+    },
+    "arandano": {
+      "chacra_soles_kg": {
+        "titulo": "Chacra S/ Kg",
+        "serie_nombre": "2026",
+        "valor": 12.27,
+        "etiqueta": "Feb"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/kg",
+        "serie_nombre": "2026",
+        "valor": 7.25,
+        "etiqueta": "Sem 43"
+      }
+    },
+    "cafe": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Café Villa Rica",
+        "valor": 38.75,
+        "etiqueta": "10/11/26"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/kg",
+        "serie_nombre": "2026",
+        "valor": 8.78,
+        "etiqueta": "Sem 43"
+      }
+    },
+    "cacao": {
+      "chacra_soles_kg": {
+        "titulo": "Chacra S/ Kg",
+        "serie_nombre": "2025",
+        "valor": 19.56,
+        "etiqueta": "Agosto"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/kg",
+        "serie_nombre": "2026",
+        "valor": 5.89,
+        "etiqueta": "Setiembre"
+      }
+    },
+    "azucar": {
+      "mayorista_soles_kg": {
+        "titulo": "Mayorista S/ Kg",
+        "serie_nombre": "Azucar Rubia Nacional (Granel)",
+        "valor": 3.38,
+        "etiqueta": "Sem 44"
+      },
+      "fob_usd_kg": {
+        "titulo": "FOB US$/kg",
+        "serie_nombre": "2026",
+        "valor": 0.55,
+        "etiqueta": "Sem 43"
+      }
+    }
+  },
+  "emmsa": {
+    "date": "14/11/2026",
+    "items": {
+      "ACELGA": {
+        "variedad": "ACELGA",
+        "producto": "ACELGA",
+        "soles_kg": 3.7,
+        "date": "14/11/2026"
+      },
+      "AJI AMARILLO SECO": {
+        "variedad": "AJI AMARILLO SECO",
+        "producto": "AJI",
+        "soles_kg": 14.63,
+        "date": "14/11/2026"
+      },
+      "AJI ESCABECHE FRESCO/ZANAHOR/LISO": {
+        "variedad": "AJI ESCABECHE FRESCO/ZANAHOR/LISO",
+        "producto": "AJI",
+        "soles_kg": 4.43,
+        "date": "14/11/2026"
+      },
+      "AJI MONTANA/CHAN(COSTA/SELVA)": {
+        "variedad": "AJI MONTANA/CHAN(COSTA/SELVA)",
+        "producto": "AJI",
+        "soles_kg": 4.75,
+        "date": "14/11/2026"
+      },
+      "AJI SECO PANCA": {
+        "variedad": "AJI SECO PANCA",
+        "producto": "AJI",
+        "soles_kg": 17.0,
+        "date": "14/11/2026"
+      },
+      "AJI PAPRIKA": {
+        "variedad": "AJI PAPRIKA",
+        "producto": "AJI",
+        "soles_kg": 17.0,
+        "date": "14/11/2026"
+      },
+      "AJO PELADO": {
+        "variedad": "AJO PELADO",
+        "producto": "AJO",
+        "soles_kg": 8.75,
+        "date": "14/11/2026"
+      },
+      "AJO CRIOLLO O NAPURI": {
+        "variedad": "AJO CRIOLLO O NAPURI",
+        "producto": "AJO",
+        "soles_kg": 5.38,
+        "date": "14/11/2026"
+      },
+      "AJO CHINO": {
+        "variedad": "AJO CHINO",
+        "producto": "AJO",
+        "soles_kg": 6.38,
+        "date": "14/11/2026"
+      },
+      "ALBAHACA": {
+        "variedad": "ALBAHACA",
+        "producto": "ALBAHACA",
+        "soles_kg": 2.75,
+        "date": "14/11/2026"
+      },
+      "ALCACHOFA SERRANA/VALLE/QUEBRADA/HELADA": {
+        "variedad": "ALCACHOFA SERRANA/VALLE/QUEBRADA/HELADA",
+        "producto": "ALCACHOFA",
+        "soles_kg": 22.75,
+        "date": "14/11/2026"
+      },
+      "APIO": {
+        "variedad": "APIO",
+        "producto": "APIO",
+        "soles_kg": 20.5,
+        "date": "14/11/2026"
+      },
+      "ARVEJA VERDE AMER/MEJ/(CRIOLLA/SERRANA)": {
+        "variedad": "ARVEJA VERDE AMER/MEJ/(CRIOLLA/SERRANA)",
+        "producto": "ARVEJA",
+        "soles_kg": 6.58,
+        "date": "14/11/2026"
+      },
+      "ARVEJA VERDE BLANCA SERRANA": {
+        "variedad": "ARVEJA VERDE BLANCA SERRANA",
+        "producto": "ARVEJA",
+        "soles_kg": 5.7,
+        "date": "14/11/2026"
+      },
+      "BERENJENA (CRIOLLA/SERRANA)": {
+        "variedad": "BERENJENA (CRIOLLA/SERRANA)",
+        "producto": "BERENJENA",
+        "soles_kg": 22.5,
+        "date": "14/11/2026"
+      },
+      "BETARRAGA (CRIOLLA/SERRANA)": {
+        "variedad": "BETARRAGA (CRIOLLA/SERRANA)",
+        "producto": "BETARRAGA",
+        "soles_kg": 3.75,
+        "date": "14/11/2026"
+      },
+      "CALABAZA (CRIOLLA/SERRANA)": {
+        "variedad": "CALABAZA (CRIOLLA/SERRANA)",
+        "producto": "CALABAZA",
+        "soles_kg": 5.17,
+        "date": "14/11/2026"
+      },
+      "CAMOTE AMARILLO/LEGIT/JHONATAN/2001/FUTU": {
+        "variedad": "CAMOTE AMARILLO/LEGIT/JHONATAN/2001/FUTU",
+        "producto": "CAMOTE",
+        "soles_kg": 1.33,
+        "date": "14/11/2026"
+      },
+      "CAMOTE MORADO/LEG/MILA/MEJ/PEPIN/PARAMON": {
+        "variedad": "CAMOTE MORADO/LEG/MILA/MEJ/PEPIN/PARAMON",
+        "producto": "CAMOTE",
+        "soles_kg": 1.75,
+        "date": "14/11/2026"
+      },
+      "CEBOLLA CABEZA BLANCA NACIONAL": {
+        "variedad": "CEBOLLA CABEZA BLANCA NACIONAL",
+        "producto": "CEBOLLA",
+        "soles_kg": 2.88,
+        "date": "14/11/2026"
+      },
+      "CEBOLLA CABEZA ROJA/MAJ/TAMB/LOC/CAM/MIL": {
+        "variedad": "CEBOLLA CABEZA ROJA/MAJ/TAMB/LOC/CAM/MIL",
+        "producto": "CEBOLLA",
+        "soles_kg": 3.23,
+        "date": "14/11/2026"
+      },
+      "CEBOLLA CHINA (CRIOLLA/SERRANA)": {
+        "variedad": "CEBOLLA CHINA (CRIOLLA/SERRANA)",
+        "producto": "CEBOLLA",
+        "soles_kg": 4.08,
+        "date": "14/11/2026"
+      },
+      "CULANTRO (CRIOLLO/SERRANO)": {
+        "variedad": "CULANTRO (CRIOLLO/SERRANO)",
+        "producto": "CULANTRO",
+        "soles_kg": 4.88,
+        "date": "14/11/2026"
+      },
+      "ESPARRAGO/VERDE/BLANCO": {
+        "variedad": "ESPARRAGO/VERDE/BLANCO",
+        "producto": "ESPARRAGO",
+        "soles_kg": 3.65,
+        "date": "14/11/2026"
+      },
+      "ESPINACA (CRIOLLA/SERRANA)": {
+        "variedad": "ESPINACA (CRIOLLA/SERRANA)",
+        "producto": "ESPINACA",
+        "soles_kg": 3.25,
+        "date": "14/11/2026"
+      },
+      "FREJOL VERDE CANARIO": {
+        "variedad": "FREJOL VERDE CANARIO",
+        "producto": "FREJOL",
+        "soles_kg": 8.08,
+        "date": "14/11/2026"
+      },
+      "HABA VERDE SERRANA": {
+        "variedad": "HABA VERDE SERRANA",
+        "producto": "HABA",
+        "soles_kg": 2.88,
+        "date": "14/11/2026"
+      },
+      "HIERBA BUENA (CRIOLLA/SERRANA)": {
+        "variedad": "HIERBA BUENA (CRIOLLA/SERRANA)",
+        "producto": "HIERBABUENA",
+        "soles_kg": 1.78,
+        "date": "14/11/2026"
+      },
+      "JOLANTAU/ORGANICA": {
+        "variedad": "JOLANTAU/ORGANICA",
+        "producto": "HORTALIZAS CHINAS",
+        "soles_kg": 9.25,
+        "date": "14/11/2026"
+      },
+      "KION (COSTA/SELVA)": {
+        "variedad": "KION (COSTA/SELVA)",
+        "producto": "HORTALIZAS CHINAS",
+        "soles_kg": 3.88,
+        "date": "14/11/2026"
+      },
+      "FREJOLITO CHINO": {
+        "variedad": "FREJOLITO CHINO",
+        "producto": "HORTALIZAS CHINAS",
+        "soles_kg": 2.5,
+        "date": "14/11/2026"
+      },
+      "BROCOLI": {
+        "variedad": "BROCOLI",
+        "producto": "HORTALIZAS CHINAS",
+        "soles_kg": 3.08,
+        "date": "14/11/2026"
+      },
+      "HUACATAY (CRIOLLO/SERRANO)": {
+        "variedad": "HUACATAY (CRIOLLO/SERRANO)",
+        "producto": "HUACATAY",
+        "soles_kg": 2.75,
+        "date": "14/11/2026"
+      },
+      "LECHUGA AMERICANA (CRIOLLA/SERRANA)": {
+        "variedad": "LECHUGA AMERICANA (CRIOLLA/SERRANA)",
+        "producto": "LECHUGA",
+        "soles_kg": 13.0,
+        "date": "14/11/2026"
+      },
+      "LECHUGA CRIOLLA SEDA": {
+        "variedad": "LECHUGA CRIOLLA SEDA",
+        "producto": "LECHUGA",
+        "soles_kg": 14.75,
+        "date": "14/11/2026"
+      },
+      "LECHUGA SERRANA SEDA": {
+        "variedad": "LECHUGA SERRANA SEDA",
+        "producto": "LECHUGA",
+        "soles_kg": 13.75,
+        "date": "14/11/2026"
+      },
+      "LECHUGA ROMANA/HIDROF./BLANCA/ROJA/ORG": {
+        "variedad": "LECHUGA ROMANA/HIDROF./BLANCA/ROJA/ORG",
+        "producto": "LECHUGA",
+        "soles_kg": 11.25,
+        "date": "14/11/2026"
+      },
+      "LENTEJA-VERDE/CORRIENTE": {
+        "variedad": "LENTEJA-VERDE/CORRIENTE",
+        "producto": "LENTEJA",
+        "soles_kg": 3.07,
+        "date": "14/11/2026"
+      },
+      "MAIZ MORADO FRESC/MOJAD/SARASO/SECO": {
+        "variedad": "MAIZ MORADO FRESC/MOJAD/SARASO/SECO",
+        "producto": "MAIZ",
+        "soles_kg": 3.73,
+        "date": "14/11/2026"
+      },
+      "MARLO/CORONTA DE MAIZ MORADO": {
+        "variedad": "MARLO/CORONTA DE MAIZ MORADO",
+        "producto": "MAIZ",
+        "soles_kg": 19.25,
+        "date": "14/11/2026"
+      },
+      "NABO (CRIOLLO/SERRANO)": {
+        "variedad": "NABO (CRIOLLO/SERRANO)",
+        "producto": "NABO",
+        "soles_kg": 2.75,
+        "date": "14/11/2026"
+      },
+      "OREGANO (CRIOLLO/SERRANO)": {
+        "variedad": "OREGANO (CRIOLLO/SERRANO)",
+        "producto": "OREGANO",
+        "soles_kg": 1.83,
+        "date": "14/11/2026"
+      },
+      "OREGANO SECO": {
+        "variedad": "OREGANO SECO",
+        "producto": "OREGANO",
+        "soles_kg": 13.25,
+        "date": "14/11/2026"
+      },
+      "OLLUCO LARGO (SIN LAVAR/LAVADO)": {
+        "variedad": "OLLUCO LARGO (SIN LAVAR/LAVADO)",
+        "producto": "OLLUCO",
+        "soles_kg": 4.08,
+        "date": "14/11/2026"
+      },
+      "PALLAR VERDE SERRUCHO/CACHITO": {
+        "variedad": "PALLAR VERDE SERRUCHO/CACHITO",
+        "producto": "PALLAR",
+        "soles_kg": 4.45,
+        "date": "14/11/2026"
+      },
+      "PAPA AMARILLA": {
+        "variedad": "PAPA AMARILLA",
+        "producto": "PAPA",
+        "soles_kg": 5.35,
+        "date": "14/11/2026"
+      },
+      "PAPA BLANCA/VALLE/OTROS": {
+        "variedad": "PAPA BLANCA/VALLE/OTROS",
+        "producto": "PAPA",
+        "soles_kg": 1.99,
+        "date": "14/11/2026"
+      },
+      "PAPA COLOR/VALLE/OTROS": {
+        "variedad": "PAPA COLOR/VALLE/OTROS",
+        "producto": "PAPA",
+        "soles_kg": 3.11,
+        "date": "14/11/2026"
+      },
+      "PAPA HUAYRO (ROJO-MORO-NEGRO)RUNT/MARH/U": {
+        "variedad": "PAPA HUAYRO (ROJO-MORO-NEGRO)RUNT/MARH/U",
+        "producto": "PAPA",
+        "soles_kg": 3.3,
+        "date": "14/11/2026"
+      },
+      "PAPA HUAMANTANGA": {
+        "variedad": "PAPA HUAMANTANGA",
+        "producto": "PAPA",
+        "soles_kg": 2.78,
+        "date": "14/11/2026"
+      },
+      "PAPA NEGRA ANDINA": {
+        "variedad": "PAPA NEGRA ANDINA",
+        "producto": "PAPA",
+        "soles_kg": 2.55,
+        "date": "14/11/2026"
+      },
+      "PAPA PERUANITA (INJERTO)": {
+        "variedad": "PAPA PERUANITA (INJERTO)",
+        "producto": "PAPA",
+        "soles_kg": 3.18,
+        "date": "14/11/2026"
+      },
+      "PAPA YUNGAY": {
+        "variedad": "PAPA YUNGAY",
+        "producto": "PAPA",
+        "soles_kg": 1.99,
+        "date": "14/11/2026"
+      },
+      "PAPA UNICA": {
+        "variedad": "PAPA UNICA",
+        "producto": "PAPA",
+        "soles_kg": 2.95,
+        "date": "14/11/2026"
+      },
+      "PAPA CANCHAN": {
+        "variedad": "PAPA CANCHAN",
+        "producto": "PAPA",
+        "soles_kg": 3.08,
+        "date": "14/11/2026"
+      },
+      "PAPA HUEVO DE INDIO": {
+        "variedad": "PAPA HUEVO DE INDIO",
+        "producto": "PAPA",
+        "soles_kg": 2.98,
+        "date": "14/11/2026"
+      },
+      "PEPINILLO": {
+        "variedad": "PEPINILLO",
+        "producto": "PEPINILLO",
+        "soles_kg": 5.5,
+        "date": "14/11/2026"
+      },
+      "PEREJIL NACIONAL(CRIOLLO/SERRANO)": {
+        "variedad": "PEREJIL NACIONAL(CRIOLLO/SERRANO)",
+        "producto": "PEREJIL",
+        "soles_kg": 2.75,
+        "date": "14/11/2026"
+      },
+      "PORO (CRIOLLO/SERRANO)": {
+        "variedad": "PORO (CRIOLLO/SERRANO)",
+        "producto": "PORO",
+        "soles_kg": 8.5,
+        "date": "14/11/2026"
+      },
+      "RABANITO (CRIOLLO/SERRANO)": {
+        "variedad": "RABANITO (CRIOLLO/SERRANO)",
+        "producto": "RABANITO",
+        "soles_kg": 3.43,
+        "date": "14/11/2026"
+      },
+      "TOMATE CHERRY": {
+        "variedad": "TOMATE CHERRY",
+        "producto": "TOMATE",
+        "soles_kg": 5.75,
+        "date": "14/11/2026"
+      },
+      "TOMATE ORGANICO": {
+        "variedad": "TOMATE ORGANICO",
+        "producto": "TOMATE",
+        "soles_kg": 4.28,
+        "date": "14/11/2026"
+      },
+      "VAINITA AMERICANA/SEDA/PITO/CORRIENT/MAD": {
+        "variedad": "VAINITA AMERICANA/SEDA/PITO/CORRIENT/MAD",
+        "producto": "VAINITA",
+        "soles_kg": 4.45,
+        "date": "14/11/2026"
+      },
+      "YUCA AMARILLA/LEGITIMO (COSTA/SELVA)": {
+        "variedad": "YUCA AMARILLA/LEGITIMO (COSTA/SELVA)",
+        "producto": "YUCA",
+        "soles_kg": 2.0,
+        "date": "14/11/2026"
+      },
+      "ZAPALLO ITALIANO": {
+        "variedad": "ZAPALLO ITALIANO",
+        "producto": "ZAPALLO",
+        "soles_kg": 18.0,
+        "date": "14/11/2026"
+      },
+      "ZAPALLO LOCHE": {
+        "variedad": "ZAPALLO LOCHE",
+        "producto": "ZAPALLO",
+        "soles_kg": 17.25,
+        "date": "14/11/2026"
+      },
+      "ZAPALLO MACRE(COSTA/SIERRA/SELVA)": {
+        "variedad": "ZAPALLO MACRE(COSTA/SIERRA/SELVA)",
+        "producto": "ZAPALLO",
+        "soles_kg": 2.7,
+        "date": "14/11/2026"
+      },
+      "AJONJOLI": {
+        "variedad": "AJONJOLI",
+        "producto": "AJONJOLI",
+        "soles_kg": 10.13,
+        "date": "14/11/2026"
+      },
+      "ACHIOTE": {
+        "variedad": "ACHIOTE",
+        "producto": "ACHIOTE",
+        "soles_kg": 11.0,
+        "date": "14/11/2026"
+      },
+      "HIERBA LUISA": {
+        "variedad": "HIERBA LUISA",
+        "producto": "HIERBA LUISA",
+        "soles_kg": 2.18,
+        "date": "14/11/2026"
+      },
+      "MANZANILLA": {
+        "variedad": "MANZANILLA",
+        "producto": "MANZANILLA",
+        "soles_kg": 1.7,
+        "date": "14/11/2026"
+      },
+      "ANIS FRESCO/VERDE (CRIOLLA/SERRANA)": {
+        "variedad": "ANIS FRESCO/VERDE (CRIOLLA/SERRANA)",
+        "producto": "ANIS FRESCO/VERDE (CRIOLLA/SERRANA)",
+        "soles_kg": 1.9,
+        "date": "14/11/2026"
+      },
+      "ROMERO": {
+        "variedad": "ROMERO",
+        "producto": "ROMERO",
+        "soles_kg": 1.85,
+        "date": "14/11/2026"
+      },
+      "TORONJIL": {
+        "variedad": "TORONJIL",
+        "producto": "TORONJIL",
+        "soles_kg": 1.28,
+        "date": "14/11/2026"
+      },
+      "MENTA": {
+        "variedad": "MENTA",
+        "producto": "MENTA",
+        "soles_kg": 2.23,
+        "date": "14/11/2026"
+      },
+      "HINOJO SIN FRUTO": {
+        "variedad": "HINOJO SIN FRUTO",
+        "producto": "HINOJO SIN FRUTO",
+        "soles_kg": 1.1,
+        "date": "14/11/2026"
+      },
+      "CEDRON": {
+        "variedad": "CEDRON",
+        "producto": "CEDRON",
+        "soles_kg": 2.45,
+        "date": "14/11/2026"
+      },
+      "YACON": {
+        "variedad": "YACON",
+        "producto": "YACON",
+        "soles_kg": 5.38,
+        "date": "14/11/2026"
+      },
+      "AGUAYMANTO": {
+        "variedad": "AGUAYMANTO",
+        "producto": "AGUAYMANTO",
+        "soles_kg": 5.0,
+        "date": "14/11/2026"
+      },
+      "CHAMPI?ONES": {
+        "variedad": "CHAMPI?ONES",
+        "producto": "CHAMPI?ONES",
+        "soles_kg": 5.17,
+        "date": "14/11/2026"
+      },
+      "ACEITUNA": {
+        "variedad": "ACEITUNA",
+        "producto": "ACEITUNA",
+        "soles_kg": 22.25,
+        "date": "14/11/2026"
+      },
+      "CARAMBOLA": {
+        "variedad": "CARAMBOLA",
+        "producto": "CARAMBOLA",
+        "soles_kg": 3.15,
+        "date": "14/11/2026"
+      },
+      "DURAZNO": {
+        "variedad": "DURAZNO",
+        "producto": "DURAZNO",
+        "soles_kg": 5.63,
+        "date": "14/11/2026"
+      },
+      "FRESA ROJA": {
+        "variedad": "FRESA ROJA",
+        "producto": "FRESA",
+        "soles_kg": 11.0,
+        "date": "14/11/2026"
+      },
+      "GRANADILLA (SELVA)": {
+        "variedad": "GRANADILLA (SELVA)",
+        "producto": "GRANADILLA",
+        "soles_kg": 5.25,
+        "date": "14/11/2026"
+      },
+      "PERA DE AGUA": {
+        "variedad": "PERA DE AGUA",
+        "producto": "PERA",
+        "soles_kg": 7.75,
+        "date": "14/11/2026"
+      },
+      "PLATANOS ISLA": {
+        "variedad": "PLATANOS ISLA",
+        "producto": "PLATANOS",
+        "soles_kg": 2.58,
+        "date": "14/11/2026"
+      },
+      "PLATANOS BISCOCHITO": {
+        "variedad": "PLATANOS BISCOCHITO",
+        "producto": "PLATANOS",
+        "soles_kg": 3.2,
+        "date": "14/11/2026"
+      },
+      "PLATANOS BELLACO": {
+        "variedad": "PLATANOS BELLACO",
+        "producto": "PLATANOS",
+        "soles_kg": 2.18,
+        "date": "14/11/2026"
+      },
+      "PLATANOS PALILLO": {
+        "variedad": "PLATANOS PALILLO",
+        "producto": "PLATANOS",
+        "soles_kg": 2.6,
+        "date": "14/11/2026"
+      },
+      "UVA BORGO?A NEGRA": {
+        "variedad": "UVA BORGO?A NEGRA",
+        "producto": "UVA",
+        "soles_kg": 5.88,
+        "date": "14/11/2026"
+      },
+      "UVA ITALIA": {
+        "variedad": "UVA ITALIA",
+        "producto": "UVA",
+        "soles_kg": 5.5,
+        "date": "14/11/2026"
+      },
+      "MANGO HADEN": {
+        "variedad": "MANGO HADEN",
+        "producto": "MANGO",
+        "soles_kg": 5.5,
+        "date": "14/11/2026"
+      },
+      "MANGO KENT(COSTA)": {
+        "variedad": "MANGO KENT(COSTA)",
+        "producto": "MANGO",
+        "soles_kg": 6.38,
+        "date": "14/11/2026"
+      },
+      "MANGO EDWARD PLANTA": {
+        "variedad": "MANGO EDWARD PLANTA",
+        "producto": "MANGO",
+        "soles_kg": 7.25,
+        "date": "14/11/2026"
+      },
+      "MANZANA DELICIA(COSTA/SIERRA)": {
+        "variedad": "MANZANA DELICIA(COSTA/SIERRA)",
+        "producto": "MANZANA",
+        "soles_kg": 4.45,
+        "date": "14/11/2026"
+      },
+      "MANZANA CORRIENTE PARA AGUA": {
+        "variedad": "MANZANA CORRIENTE PARA AGUA",
+        "producto": "MANZANA",
+        "soles_kg": 3.63,
+        "date": "14/11/2026"
+      },
+      "MANZANA ISRAEL": {
+        "variedad": "MANZANA ISRAEL",
+        "producto": "MANZANA",
+        "soles_kg": 4.25,
+        "date": "14/11/2026"
+      },
+      "MANZANA CHILENA ROJA": {
+        "variedad": "MANZANA CHILENA ROJA",
+        "producto": "MANZANA",
+        "soles_kg": 9.5,
+        "date": "14/11/2026"
+      },
+      "MANZANA CHILENA VERDE": {
+        "variedad": "MANZANA CHILENA VERDE",
+        "producto": "MANZANA",
+        "soles_kg": 10.5,
+        "date": "14/11/2026"
+      },
+      "MANZANA CHILENA FUJI": {
+        "variedad": "MANZANA CHILENA FUJI",
+        "producto": "MANZANA",
+        "soles_kg": 8.63,
+        "date": "14/11/2026"
+      },
+      "MANZANA CHILENA ROYAL": {
+        "variedad": "MANZANA CHILENA ROYAL",
+        "producto": "MANZANA",
+        "soles_kg": 8.63,
+        "date": "14/11/2026"
+      },
+      "MANZANA GOLDEN": {
+        "variedad": "MANZANA GOLDEN",
+        "producto": "MANZANA",
+        "soles_kg": 7.63,
+        "date": "14/11/2026"
+      },
+      "MARACUYA (COSTA)": {
+        "variedad": "MARACUYA (COSTA)",
+        "producto": "MARACUYA",
+        "soles_kg": 3.53,
+        "date": "14/11/2026"
+      },
+      "TUNA HUAROCHIRI": {
+        "variedad": "TUNA HUAROCHIRI",
+        "producto": "TUNA",
+        "soles_kg": 6.0,
+        "date": "14/11/2026"
+      },
+      "SANDIA": {
+        "variedad": "SANDIA",
+        "producto": "SANDIA",
+        "soles_kg": 1.35,
+        "date": "14/11/2026"
+      },
+      "COCONA SELVA": {
+        "variedad": "COCONA SELVA",
+        "producto": "COCONA",
+        "soles_kg": 3.25,
+        "date": "14/11/2026"
+      },
+      "NARANJA VALENCIA (SELVA)": {
+        "variedad": "NARANJA VALENCIA (SELVA)",
+        "producto": "NARANJA",
+        "soles_kg": 28.5,
+        "date": "14/11/2026"
+      },
+      "NARANJA HUANDO": {
+        "variedad": "NARANJA HUANDO",
+        "producto": "NARANJA",
+        "soles_kg": 5.88,
+        "date": "14/11/2026"
+      },
+      "PI?A HAWAYANA": {
+        "variedad": "PI?A HAWAYANA",
+        "producto": "PI?A",
+        "soles_kg": 2.85,
+        "date": "14/11/2026"
+      },
+      "PI?A GOLDEN": {
+        "variedad": "PI?A GOLDEN",
+        "producto": "PI?A",
+        "soles_kg": 30.0,
+        "date": "14/11/2026"
+      },
+      "PALTA HALL (COSTA)": {
+        "variedad": "PALTA HALL (COSTA)",
+        "producto": "PALTA",
+        "soles_kg": 6.25,
+        "date": "14/11/2026"
+      },
+      "PALTA FUERTE (COSTA)": {
+        "variedad": "PALTA FUERTE (COSTA)",
+        "producto": "PALTA",
+        "soles_kg": 12.75,
+        "date": "14/11/2026"
+      },
+      "MELOCOTON": {
+        "variedad": "MELOCOTON",
+        "producto": "MELOCOTON",
+        "soles_kg": 8.5,
+        "date": "14/11/2026"
+      },
+      "MEMBRILLO": {
+        "variedad": "MEMBRILLO",
+        "producto": "MEMBRILLO",
+        "soles_kg": 4.25,
+        "date": "14/11/2026"
+      },
+      "KIWI IMPORTADO CHILE": {
+        "variedad": "KIWI IMPORTADO CHILE",
+        "producto": "KIWI",
+        "soles_kg": 17.5,
+        "date": "14/11/2026"
+      },
+      "TORONJA COSTA CON PEPA": {
+        "variedad": "TORONJA COSTA CON PEPA",
+        "producto": "TORONJA",
+        "soles_kg": 8.63,
+        "date": "14/11/2026"
+      },
+      "TAMARINDO(CON CASCARA)COSTA": {
+        "variedad": "TAMARINDO(CON CASCARA)COSTA",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 9.63,
+        "date": "14/11/2026"
+      },
+      "GRANADA (COSTA)": {
+        "variedad": "GRANADA (COSTA)",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 18.25,
+        "date": "14/11/2026"
+      },
+      "LIMA DULCE (COSTA)": {
+        "variedad": "LIMA DULCE (COSTA)",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 4.7,
+        "date": "14/11/2026"
+      },
+      "LUCUMA": {
+        "variedad": "LUCUMA",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 11.0,
+        "date": "14/11/2026"
+      },
+      "PITAHAYA": {
+        "variedad": "PITAHAYA",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 12.0,
+        "date": "14/11/2026"
+      },
+      "PACAY": {
+        "variedad": "PACAY",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 8.0,
+        "date": "14/11/2026"
+      },
+      "ARANDANOS": {
+        "variedad": "ARANDANOS",
+        "producto": "OTRAS  FRUTAS",
+        "soles_kg": 23.5,
+        "date": "14/11/2026"
+      },
+      "COCO(COSTA/SELVA)": {
+        "variedad": "COCO(COSTA/SELVA)",
+        "producto": "COCO",
+        "soles_kg": 3.33,
+        "date": "14/11/2026"
+      },
+      "CHIRIMOYA CUMBE": {
+        "variedad": "CHIRIMOYA CUMBE",
+        "producto": "CHIRIMOYA",
+        "soles_kg": 6.63,
+        "date": "14/11/2026"
+      },
+      "MANDARINA": {
+        "variedad": "MANDARINA",
+        "producto": "MANDARINA",
+        "soles_kg": 4.18,
+        "date": "14/11/2026"
+      },
+      "MELON": {
+        "variedad": "MELON",
+        "producto": "MELON",
+        "soles_kg": 3.25,
+        "date": "14/11/2026"
+      },
+      "GUANABANA": {
+        "variedad": "GUANABANA",
+        "producto": "GUANABANA",
+        "soles_kg": 7.63,
+        "date": "14/11/2026"
+      }
+    }
+  },
+  "bcrp": {
+    "usd_pen": 3.407,
+    "usd_pen_date": "12.Nov.26",
+    "ipc_food_pct": 1.03,
+    "ipc_food_date": "Oct.2026"
+  }
+}

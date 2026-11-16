@@ -1,0 +1,336 @@
+{
+  "-7.164,-78.500": {
+    "ndvi": [
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12
+    ],
+    "observed_months": 11,
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.173,-78.463": {
+    "ndvi": [
+      0.616,
+      0.52,
+      0.408,
+      0.693,
+      0.613,
+      0.601,
+      0.512,
+      0.468,
+      0.42,
+      0.447,
+      0.643,
+      0.662
+    ],
+    "observed_months": 12,
+    "latest_ndvi": 0.434,
+    "latest_observation_date": "2026-11-10",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-5.708,-78.808": {
+    "ndvi": [
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12
+    ],
+    "observed_months": 7,
+    "latest_ndvi": 0.12,
+    "latest_observation_date": "2026-10-16",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.157,-78.517": {
+    "ndvi": [
+      0.186,
+      0.203,
+      0.186,
+      0.202,
+      0.225,
+      0.232,
+      0.216,
+      0.202,
+      0.189,
+      0.204,
+      0.204,
+      0.213
+    ],
+    "observed_months": 12,
+    "latest_ndvi": 0.17,
+    "latest_observation_date": "2026-11-10",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.173,-78.491": {
+    "ndvi": [
+      0.23,
+      0.272,
+      0.268,
+      0.264,
+      0.218,
+      0.226,
+      0.185,
+      0.17,
+      0.14,
+      0.144,
+      0.262,
+      0.268
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.167,
+    "latest_observation_date": "2026-11-10",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-6.550,-78.650": {
+    "ndvi": [
+      0.595,
+      0.492,
+      0.783,
+      0.739,
+      0.47,
+      0.62,
+      0.5,
+      0.422,
+      0.364,
+      0.454,
+      0.708,
+      0.699
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.454,
+    "latest_observation_date": "2026-10-16",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.161,-78.494|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.357,
+      0.426,
+      0.413,
+      0.399,
+      0.369,
+      0.358,
+      0.296,
+      0.283,
+      0.255,
+      0.267,
+      0.449,
+      0.437
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.339,
+    "latest_observation_date": "2026-10-31",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-6.678,-78.522|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12,
+      0.12
+    ],
+    "observed_months": 12,
+    "latest_ndvi": 0.12,
+    "latest_observation_date": "2026-11-10",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.160,-78.494|p4|0.0036x0.0039": {
+    "ndvi": [
+      0.456,
+      0.659,
+      0.438,
+      0.614,
+      0.56,
+      0.527,
+      0.444,
+      0.477,
+      0.48,
+      0.525,
+      0.685,
+      0.684
+    ],
+    "observed_months": 12,
+    "latest_ndvi": 0.63,
+    "latest_observation_date": "2026-10-31",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.746,-78.522|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.272,
+      0.564,
+      0.857,
+      0.745,
+      0.5,
+      0.451,
+      0.283,
+      0.259,
+      0.224,
+      0.236,
+      0.468,
+      0.37
+    ],
+    "observed_months": 10,
+    "latest_ndvi": 0.56,
+    "latest_observation_date": "2026-11-16",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.747,-78.521|p4|0.0017x0.0031": {
+    "ndvi": [
+      0.245,
+      0.521,
+      0.797,
+      0.669,
+      0.439,
+      0.401,
+      0.261,
+      0.238,
+      0.201,
+      0.218,
+      0.4,
+      0.323
+    ],
+    "observed_months": 10,
+    "latest_ndvi": 0.452,
+    "latest_observation_date": "2026-11-16",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.164,-78.481": {
+    "ndvi": [
+      0.245,
+      0.28,
+      0.273,
+      0.267,
+      0.256,
+      0.259,
+      0.238,
+      0.215,
+      0.192,
+      0.199,
+      0.267,
+      0.275
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.187,
+    "latest_observation_date": "2026-10-27",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-8.322,-77.956": {
+    "ndvi": [
+      0.438,
+      0.544,
+      0.65,
+      0.681,
+      0.555,
+      0.479,
+      0.335,
+      0.302,
+      0.238,
+      0.351,
+      0.464,
+      0.383
+    ],
+    "observed_months": 10,
+    "latest_ndvi": 0.148,
+    "latest_observation_date": "2026-11-06",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.173,-78.491|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.223,
+      0.263,
+      0.261,
+      0.26,
+      0.238,
+      0.248,
+      0.203,
+      0.192,
+      0.163,
+      0.16,
+      0.255,
+      0.241
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.176,
+    "latest_observation_date": "2026-11-06",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-7.162,-78.480|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.53,
+      0.553,
+      0.597,
+      0.641,
+      0.593,
+      0.588,
+      0.567,
+      0.591,
+      0.52,
+      0.536,
+      0.629,
+      0.581
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.537,
+    "latest_observation_date": "2026-10-27",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  },
+  "-6.939,-79.086|p4|0.0009x0.0009": {
+    "ndvi": [
+      0.768,
+      0.759,
+      0.607,
+      0.807,
+      0.811,
+      0.78,
+      0.714,
+      0.585,
+      0.552,
+      0.593,
+      0.813,
+      0.777
+    ],
+    "observed_months": 11,
+    "latest_ndvi": 0.654,
+    "latest_observation_date": "2026-11-16",
+    "source": "cdse_sentinel2_10m",
+    "mode": "en_vivo"
+  }
+}
