@@ -10,7 +10,18 @@ import {
   Sprout,
   X,
 } from "lucide-react-native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import {
+  getCustomApiBaseUrl,
+  setCustomApiBaseUrl,
+} from "./src/services/apiClient";
 import {
   SafeAreaProvider,
   SafeAreaView,
@@ -35,6 +46,17 @@ function MainShell() {
   const insets = useSafeAreaInsets();
   const [lang, setLang] = useState<AppLanguage>("es");
   const [activeTab, setActiveTab] = useState<AppTab>("inicio");
+  const [serverModalOpen, setServerModalOpen] = useState(false);
+  const [serverUrlDraft, setServerUrlDraft] = useState(
+    () => getCustomApiBaseUrl() ?? ""
+  );
+
+  const handleSaveServerUrl = () => {
+    const trimmed = serverUrlDraft.trim();
+    setCustomApiBaseUrl(trimmed.length > 0 ? trimmed : null);
+    setServerModalOpen(false);
+    void parcel.retryBootstrap();
+  };
 
   const parcel = useParcelAnalysis(setActiveTab);
   const voice = useVoiceAssistantSession({
@@ -79,13 +101,77 @@ function MainShell() {
     parcel.farmerConfirmedInputs;
   const bottomInset = Math.max(insets.bottom, 8);
 
+  const serverModal = (
+    <Modal
+      visible={serverModalOpen}
+      transparent
+      animationType="fade"
+      onRequestClose={() => setServerModalOpen(false)}
+    >
+      <View style={styles.serverModalOverlay}>
+        <View style={styles.serverModalCard}>
+          <Text style={styles.serverModalTitle}>Servidor Backend AgroConecta</Text>
+          <Text style={styles.serverModalHint}>
+            Ingresa la URL pública HTTPS de tu backend (ej. Render) o déjalo vacío para detección local automática.
+          </Text>
+          <TextInput
+            value={serverUrlDraft}
+            onChangeText={setServerUrlDraft}
+            placeholder="https://agroconecta-api.onrender.com"
+            placeholderTextColor="#6E8072"
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="url"
+            style={styles.serverModalInput}
+          />
+          <View style={styles.serverModalActions}>
+            <TouchableOpacity
+              onPress={() => setServerModalOpen(false)}
+              style={styles.serverModalCancelBtn}
+            >
+              <Text style={styles.serverModalCancelText}>Cancelar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={handleSaveServerUrl}
+              style={styles.serverModalSaveBtn}
+            >
+              <Text style={styles.serverModalSaveText}>Guardar y conectar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </Modal>
+  );
+
   if (!parcel.result) {
     return (
       <SafeAreaView style={styles.bootSafe} edges={["top", "bottom"]}>
         <StatusBar style="light" />
         <View style={styles.bootContainer}>
           <GrowingPlantLoader />
+          {!parcel.isBootstrapping && (
+            <View style={styles.bootRetryWrap}>
+              <Text style={styles.bootRetryHint}>
+                Sin conexión con el servidor backend
+              </Text>
+              <View style={styles.bootRetryActions}>
+                <TouchableOpacity
+                  onPress={() => void parcel.retryBootstrap()}
+                  style={styles.bootRetryBtn}
+                >
+                  <Text style={styles.bootRetryBtnText}>Reintentar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setServerModalOpen(true)}
+                  style={styles.bootServerBtn}
+                >
+                  <Text style={styles.bootServerBtnText}>Configurar URL</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          )}
         </View>
+        {serverModal}
       </SafeAreaView>
     );
   }
@@ -93,6 +179,7 @@ function MainShell() {
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
       <StatusBar style="light" />
+      {serverModal}
 
       {parcel.backendError && (
         <View style={styles.inlineErrorBanner}>
@@ -100,6 +187,12 @@ function MainShell() {
           <Text style={styles.inlineErrorText} numberOfLines={2}>
             {lang === "qu" ? "Mana tinkiy kanchu" : parcel.backendError}
           </Text>
+          <TouchableOpacity
+            onPress={() => setServerModalOpen(true)}
+            style={styles.inlineRetryPill}
+          >
+            <Text style={styles.inlineRetryText}>URL</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => void parcel.runAnalysis()}
             style={styles.inlineRetryPill}
@@ -540,6 +633,105 @@ const styles = StyleSheet.create({
   },
   inlineRetryText: {
     fontSize: 11.5,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+  bootRetryWrap: {
+    marginTop: 22,
+    alignItems: "center",
+    gap: 10,
+    paddingHorizontal: 24,
+  },
+  bootRetryHint: {
+    fontSize: 12.5,
+    color: COLORS.inkOnDarkMuted,
+    textAlign: "center",
+  },
+  bootRetryActions: {
+    flexDirection: "row",
+    gap: 10,
+  },
+  bootRetryBtn: {
+    backgroundColor: COLORS.limeAccent,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 14,
+  },
+  bootRetryBtnText: {
+    fontSize: 12.5,
+    fontWeight: "800",
+    color: COLORS.forestDeep,
+  },
+  bootServerBtn: {
+    backgroundColor: "rgba(255,255,255,0.14)",
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.22)",
+  },
+  bootServerBtnText: {
+    fontSize: 12.5,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
+  serverModalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    justifyContent: "center",
+    padding: 20,
+  },
+  serverModalCard: {
+    backgroundColor: COLORS.surface,
+    borderRadius: 20,
+    padding: 18,
+    gap: 10,
+  },
+  serverModalTitle: {
+    fontSize: 16,
+    fontWeight: "800",
+    color: COLORS.inkPrimary,
+  },
+  serverModalHint: {
+    fontSize: 12.5,
+    lineHeight: 18,
+    color: COLORS.inkSecondary,
+  },
+  serverModalInput: {
+    borderWidth: 1,
+    borderColor: COLORS.borderStrong,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 13.5,
+    color: COLORS.inkPrimary,
+    backgroundColor: COLORS.surfaceSubtle,
+  },
+  serverModalActions: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    gap: 10,
+    marginTop: 4,
+  },
+  serverModalCancelBtn: {
+    paddingHorizontal: 14,
+    paddingVertical: 9,
+    borderRadius: 10,
+    backgroundColor: COLORS.surfaceSubtle,
+  },
+  serverModalCancelText: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: COLORS.inkSecondary,
+  },
+  serverModalSaveBtn: {
+    paddingHorizontal: 14,
+    paddingVertical: 9,
+    borderRadius: 10,
+    backgroundColor: COLORS.agroPrimary,
+  },
+  serverModalSaveText: {
+    fontSize: 13,
     fontWeight: "700",
     color: "#FFFFFF",
   },

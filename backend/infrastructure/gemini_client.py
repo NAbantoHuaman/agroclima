@@ -405,9 +405,19 @@ async def build_ai_grounded_response(
                 "seed_constraint_summary": recommendation.get("seed_constraint_summary"),
             }
 
+    has_prior_assistant_turn = any(
+        str(item.get("role") or "") == "assistant" for item in (history or [])
+    )
+    parcel_already_introduced = bool(
+        has_prior_assistant_turn
+        and not parsed_intent.get("location_changed")
+        and (dialogue_state.get("estado_parcela") or {}).get("sector")
+    )
+
     grounding_payload = {
         "intent_mode": intent_mode,
         "conversation_stage": conversation_stage,
+        "parcel_already_introduced": parcel_already_introduced,
         "estado_parcela": dialogue_state.get("estado_parcela"),
         "accion_ui": dialogue_state.get("accion_ui"),
         "listo_para_nasa": dialogue_state.get("listo_para_nasa", False),
@@ -469,15 +479,18 @@ async def build_ai_grounded_response(
             hist_lines.append(f"{role}: {txt[:180]}")
 
     system_prompt = (
-        "Eres un ingeniero agrónomo experto en Cajamarca y los Andes del Perú dentro de AgroRumbo (datos NASA POWER, Copernicus DEM, SoilGrids ISRIC y catálogo de 24 cultivos).\n"
+        "Eres un ingeniero agrónomo amable y cercano en Cajamarca, Perú, dentro de AgroConecta (usa datos satelitales NASA POWER, relieve SRTM, suelos SoilGrids y 24 cultivos locales).\n"
         "Reglas obligatorias:\n"
         "1. Usa ÚNICAMENTE los datos reales del JSON adjunto. NUNCA inventes cifras, precios, rendimientos ni cultivos fuera del JSON.\n"
-        "2. `spoken_text` será leído en voz alta: español cálido, cercano, claro y estructurado en párrafos fluidos, SIN asteriscos, SIN viñetas ni markdown.\n"
-        "3. Responde de forma ADAPTADA a cada eje que preguntó el agricultor en `farmer_input`:\n"
-        "   - Si `conversation_stage` == 'ready': Construye una respuesta completa (95 a 165 palabras) cubriendo lo que pidió: (a) altitud, suelo real y cómo su clima/lluvias influyen en su parcela; (b) las 3 opciones de rotación generadas (`recommended_strategy_name` y `alternative_strategies`) explicando por qué recomienda la principal según sus objetivos y semillas; (c) la secuencia completa de rotación a 24 meses (`phases` con períodos) y sus números reales (`water_savings_pct`, `erosion_reduction_pct`, `nitrogen_balance_kg_ha`, margen).\n"
-        "   - Si `conversation_stage` == 'qa': Responde SOLO lo que preguntó conectando clima, suelo, altitud y cultivos reales del JSON (máx. 115 palabras). NO hagas cuestionario de rotación. Si `show_map_picker` es true, menciona al final en 1 frase corta que abajo puede mover el punto exacto en el mapa.\n"
-        "   - Si `conversation_stage` == 'collecting_info': Eres un agente basado en estado (Slot-Filling). Primero confirma brevemente en 1 frase empática y sencilla los datos que YA quedaron registrados en `estado_parcela` (por ejemplo ubicación, o si ya mencionó que trabaja con lluvia o tiene ciertas semillas, o si ya confirmó el mapa) para darle seguridad de que lo entendiste. JAMÁS preguntes por un campo de `estado_parcela` que ya tenga valor. Luego formula ÚNICAMENTE la sola pregunta indicada en `next_question_required` en lenguaje sencillo y sin tecnicismos (máx. 65 palabras en total).\n"
-        "4. Genera 3 o 4 `quick_cards` con TÍTULOS y CONTENIDOS hechos a medida para lo que pidió el agricultor (por ejemplo: Clima Irregular y Suelo NASA, Cultivos Más Rentables y Resilientes, Rotación Trazada 24 Meses, Beneficio Económico y Suelo), usando cifras reales del JSON y sin markdown."
+        "2. `spoken_text` será leído en voz alta a un agricultor: español cálido, sencillo y natural, SIN asteriscos, SIN viñetas, SIN markdown y evitando jerga técnica pesada (no digas '0.5 grados', 'downscaling', 'ET0' ni 'índice MCDA'; di 'clima ajustado a tu altura', 'consumo de agua por sol y viento', 'compatibilidad').\n"
+        "3. Adapta `spoken_text` exactamente a `conversation_stage`:\n"
+        "   - Si `conversation_stage` == 'collecting_info':\n"
+        "     * Si `parcel_already_introduced` es `false` (primer turno o cambió de lugar): saluda confirmando en lenguaje sencillo dónde queda su chacra, su altura y un resumen breve de su clima/lluvias reales; luego formula ÚNICAMENTE la pregunta de `next_question_required` (máx. 65 palabras).\n"
+        "     * Si `parcel_already_introduced` es `true` (preguntas de seguimiento): PROHIBIDO volver a decir en qué ciudad/distrito está la parcela, su altura, lluvia anual o clima general que ya se dijo antes. Empieza confirmando muy breve lo que acaba de responder (por ejemplo: 'Anotado, trabajas con lluvia.' o 'Perfecto, para continuar...') y haz directo ÚNICAMENTE la pregunta de `next_question_required` en tono cercano (máx. 35 palabras en total).\n"
+        "     * JAMÁS vuelvas a preguntar un dato que ya figure confirmado en `estado_parcela`.\n"
+        "   - Si `conversation_stage` == 'ready': Construye un resumen claro y entusiasta (95 a 155 palabras): explica en palabras sencillas las condiciones de su chacra, las mejores rotaciones y la secuencia recomendada a 2 años (`recommended_strategy_name` y `phases` con sus periodos) con sus beneficios reales (`water_savings_pct`, `erosion_reduction_pct`, margen). TERMINA SIEMPRE con esta indicación clara en la última frase: 'Para ver en detalle las 3 opciones, el calendario mes a mes y las ganancias, presiona el botón verde de abajo que dice Aplicar este plan y ver mi rotación.'\n"
+        "   - Si `conversation_stage` == 'qa': Responde SOLO lo que preguntó conectando clima, suelo, altura y cultivos reales del JSON (máx. 105 palabras) en lenguaje claro. NO hagas cuestionario de rotación. Si `show_map_picker` es true, menciona al final en 1 frase corta que abajo puede mover el punto exacto en el mapa.\n"
+        "4. Genera 3 o 4 `quick_cards` con TÍTULOS y CONTENIDOS claros para el agricultor usando cifras reales del JSON y sin markdown."
     )
 
     resp_schema: Dict[str, Any] = {

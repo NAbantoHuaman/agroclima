@@ -126,28 +126,26 @@ export const SatelliteMetricsGrid: React.FC<SatelliteMetricsGridProps> = ({
   };
 
   const smapLabel = smapDs?.sensor.includes("SMAP") && smapDs.mode !== "estimado"
-    ? "NASA SMAP"
+    ? "Satélite NASA SMAP"
     : smapDs?.sensor.includes("ERA5")
-      ? "ERA5 + GWETTOP"
+      ? "Clima / Agua NASA"
       : "Humedad estimada";
   const smapBadge = getBadgeMeta(smapDs?.mode);
 
   const ndviLabel = ndviDs?.sensor.includes("Sentinel-2") && ndviDs.mode !== "estimado"
-    ? "Sentinel-2 (10 m)"
-    : "NDVI estimado";
+    ? "Verdor Sentinel-2"
+    : "Verdor estimado";
   const ndviBadge = getBadgeMeta(ndviDs?.mode);
 
   const powerLabel = ecostressDs?.sensor.includes("ECOSTRESS")
-    ? "POWER + ECOSTRESS"
-    : "NASA POWER 20a";
+    ? "NASA Térmico / Clima"
+    : "Historial 20a NASA";
   const powerBadge = getBadgeMeta(powerDs?.mode);
 
-  const soilPart = soilDs?.sensor.includes("SoilGrids") ? "SoilGrids 250m" : "ZEE Soil";
-  const demPart = demDs?.sensor.includes("30")
-    ? "SRTM 30m"
-    : demDs?.sensor.includes("90")
-      ? "Cop 90m"
-      : "DEM IDW";
+  const soilPart = soilDs?.sensor.includes("SoilGrids") ? "Suelo SoilGrids" : "Suelo Cajamarca";
+  const demPart = demDs?.sensor.includes("30") || demDs?.sensor.includes("90")
+    ? "Relieve NASA"
+    : "Relieve local";
   const combinedSoilMode =
     soilDs?.mode === "en_vivo" && (demDs?.mode === "en_vivo" || demDs?.mode === "guardado")
       ? "en_vivo"
@@ -352,19 +350,25 @@ export const SatelliteMetricsGrid: React.FC<SatelliteMetricsGridProps> = ({
             {activeLayer === "erosion" &&
             displayedResult?.biophysical.provenance.erosion_method_label
               ? displayedResult.biophysical.provenance.erosion_method_label
-              : `${activeDsDetail?.sensor}: ${activeDsDetail?.resolution}`}
+              : activeDsDetail?.plain || `${activeDsDetail?.sensor}: ${activeDsDetail?.resolution}`}
           </Text>
         )}
         {displayedResult?.biophysical.provenance.spatial_scale_hierarchy && (
           <View style={styles.scaleTierWrap}>
             {displayedResult.biophysical.provenance.spatial_scale_hierarchy.map(
-              (tier) => (
-                <View key={tier.tier} style={styles.scaleTierPill}>
-                  <Text style={styles.scaleTierTitle}>
-                    {tier.resolution} · {tier.sensors}
-                  </Text>
-                </View>
-              )
+              (tier) => {
+                const friendlyTier =
+                  tier.tier === "poligono_parcela"
+                    ? "Detalle de tu chacra (Sentinel-2 · relieve SRTM)"
+                    : tier.tier === "perimetro_suelo"
+                      ? "Tipo de suelo (SoilGrids + tus datos)"
+                      : "Clima 20 años ajustado a tu altura (NASA POWER · ERA5)";
+                return (
+                  <View key={tier.tier} style={styles.scaleTierPill}>
+                    <Text style={styles.scaleTierTitle}>{friendlyTier}</Text>
+                  </View>
+                );
+              }
             )}
           </View>
         )}

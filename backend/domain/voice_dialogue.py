@@ -795,6 +795,7 @@ def build_collecting_spoken_response(
     biophysical: Dict[str, Any],
     parsed_intent: Dict[str, Any],
     dialogue_state: Dict[str, Any],
+    history: Optional[List[Dict[str, str]]] = None,
 ) -> Dict[str, Any]:
     """Builds a real NASA telemetry preview + guided follow-up question before strategy calculation."""
     elev = int(round(float(terrain["elevation_m"])))
@@ -806,31 +807,45 @@ def build_collecting_spoken_response(
     frost_months = len(bio_sum.get("frost_risk_months") or [])
     next_q = str(dialogue_state.get("next_question") or "")
 
+    has_prior_turn = bool(
+        history and any(str(h.get("role") or "") == "assistant" for h in history)
+    )
+    parcel_already_introduced = bool(
+        has_prior_turn and not parsed_intent.get("location_changed")
+    )
+
     map_hint = (
         "Abajo puedes abrir el mapa satelital para mover el punto exacto o dibujar tu parcela. "
         if dialogue_state.get("show_map_picker")
         else ""
     )
-    spoken_text = (
-        f"Ubiqué tu sector en {zone} a {elev} metros sobre el nivel del mar ({belt}). "
-        f"Según datos reales de la NASA allí llueven {ann_rain} milímetros al año, temperatura media de {t_mean:.1f} grados "
-        f"y {frost_months} meses con riesgo de helada. "
-        f"{map_hint}{next_q}"
-    ).strip()
+    if parcel_already_introduced and not dialogue_state.get("show_map_picker"):
+        spoken_text = (
+            f"Perfecto, quedó anotado. Para continuar: {next_q}"
+            if next_q
+            else "Perfecto, ya tengo esos datos listos."
+        ).strip()
+    else:
+        spoken_text = (
+            f"Ubiqué tu chacra en {zone} a {elev} metros sobre el nivel del mar ({belt}). "
+            f"Según el clima de tu zona llueven unos {ann_rain} milímetros al año, con temperatura media de {t_mean:.1f} grados "
+            f"y {frost_months} meses con riesgo de helada. "
+            f"{map_hint}{next_q}"
+        ).strip()
 
     quick_cards = [
         {
-            "title": "1. Lectura Satelital Real (NASA POWER + DEM)",
+            "title": "1. Clima y altura de tu chacra",
             "badge": f"{elev} m s.n.m. · {t_mean:.1f} °C",
             "body": (
-                f"{zone} ({belt}). Precipitación NASA: {ann_rain} mm/año · "
-                f"Pendiente: {terrain['slope_pct']:.1f}% · Heladas: {terrain.get('frost_risk_window', 'Según piso')}."
+                f"{zone} ({belt}). Lluvia anual: {ann_rain} mm · "
+                f"Inclinación: {terrain['slope_pct']:.1f}% · Heladas: {terrain.get('frost_risk_window', 'Según piso')}."
             ),
         },
         {
             "title": "2. Siguiente dato para tu rotación",
             "badge": f"Faltan {len(dialogue_state.get('missing_fields') or [])}",
-            "body": next_q or "Listo para calcular estrategias con los 24 cultivos.",
+            "body": next_q or "Listo para calcular tus mejores estrategias.",
         },
     ]
     return {
@@ -901,11 +916,12 @@ def build_spoken_farmer_response(
     soil_phrase = f" y suelo con pH {float(soil_ph):.1f}" if soil_ph is not None else ""
     immediate = str(seasonal.get("immediate_action", "Mantén cobertura vegetal para cuidar la humedad."))
     spoken_text = (
-        f"Ubicado en {zone} a {elev} metros ({belt}{soil_phrase}). "
-        f"El historial NASA de 20 años muestra +{temp_20:.1f} grados con {rain_word}. "
+        f"En {zone} a {elev} metros ({belt}{soil_phrase}), "
+        f"los últimos 20 años muestran +{temp_20:.1f} grados más y {rain_word}. "
         f"{seed_note}"
-        f"Con los 24 cultivos evaluados, tu mejor rotación para 2 años es: {route_spoken}. "
-        f"Este mes: {immediate}"
+        f"Tu mejor rotación para los próximos 2 años es: {route_spoken}. "
+        f"Para este mes: {immediate} "
+        "Para ver las 3 opciones completas y el calendario mes a mes, presiona el botón verde de abajo que dice: Aplicar este plan y ver mi rotación."
     )
 
     benefits = best["explainability"]["quantified_benefits"]

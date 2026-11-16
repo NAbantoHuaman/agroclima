@@ -60,57 +60,57 @@ def _build_dataset_provenance(
             else ""
         )
         ndvi_sensor = "Copernicus Sentinel-2 L2A (NDVI)"
-        ndvi_res = f"10 m reales ({sentinel2_data.get('observed_months', 12)}/12 meses despejados{latest_note})"
+        ndvi_res = f"Detalle fino ({sentinel2_data.get('observed_months', 12)}/12 meses despejados{latest_note})"
         ndvi_mode = str(sentinel2_data.get("mode", "en_vivo"))
-        ndvi_plain = "Verdor real de esta parcela medido desde Sentinel-2 cada mes y en su última pasada despejada."
+        ndvi_plain = "Verdor real de tus plantas visto desde el satélite (Sentinel-2) cada mes y en su última pasada sin nubes."
     else:
         ndvi_sensor = "Sentinel-2 / Landsat (NDVI)"
-        ndvi_res = "Perfil mensual por tipo de manejo"
+        ndvi_res = "Perfil mensual según manejo del cultivo"
         ndvi_mode = "estimado"
-        ndvi_plain = "Verdor estimado según el cultivo actual (agrega CDSE en .env para NDVI real 10 m)."
+        ndvi_plain = "Verdor estimado según el cultivo actual de la chacra (satélite Sentinel-2 / Landsat)."
 
     if earthdata and earthdata.get("smap_monthly"):
         sm_sensor = f"NASA SMAP ({earthdata.get('smap_product', 'AppEEARS')})"
-        sm_res = "Serie mensual AppEEARS para Cajamarca"
+        sm_res = "Medición satelital mensual ajustada a Cajamarca"
         sm_mode = "guardado"
-        sm_plain = "Humedad real del suelo descargada de NASA SMAP (y ajustada al terreno)."
+        sm_plain = "Humedad real guardada en la tierra medida por satélite NASA SMAP y ajustada a tu terreno."
     elif era5_data is not None:
         sm_sensor = "ERA5-Land + NASA GWETTOP"
-        sm_res = "~9 km ECMWF + 0.5° MERRA-2 (0–7 cm), ajustado a parcela"
+        sm_res = "Humedad superficial (0–7 cm) ajustada a tu parcela"
         sm_mode = str(era5_data.get("mode", "en_vivo"))
-        sm_plain = "Humedad real del suelo medida por ERA5-Land y NASA MERRA-2 (0–7 cm)."
+        sm_plain = "Humedad real del suelo en los primeros centímetros según clima y satélites NASA / ERA5."
     else:
         sm_sensor = "SMAP / Humedad del suelo"
-        sm_res = "Derivado de lluvia, demanda y pendiente"
+        sm_res = "Estimado según lluvia, sol e inclinación"
         sm_mode = "estimado"
-        sm_plain = "Cuánta agua guarda la tierra en la capa superior (modelo hídrico local)."
+        sm_plain = "Cuánta agua guarda la tierra cerca de las raíces según lluvia y pendiente."
 
     if earthdata and earthdata.get("ecostress_et_daily"):
         et_sensor = f"NASA ECOSTRESS ({earthdata.get('ecostress_product', 'ECO_L3T_JET.002')})"
-        et_res = "Evapotranspiración diaria AppEEARS + Makkink"
+        et_res = "Pérdida diaria de humedad por sol y calor"
         et_mode = "guardado"
-        et_plain = "Demanda de agua real medida por satélite térmico NASA ECOSTRESS y ajustada al relieve."
+        et_plain = "Cuánta agua consume la planta cada día según satélite térmico NASA ECOSTRESS."
     elif era5_data and isinstance(era5_data.get("et0_fao_mm"), list) and len(era5_data["et0_fao_mm"]) == 12:
         et_sensor = "ERA5-Land ET0 FAO-56 + NASA POWER"
-        et_res = "~9 km ECMWF FAO Penman-Monteith + Makkink"
+        et_res = "Consumo de agua ajustado al clima local"
         et_mode = str(era5_data.get("mode", "en_vivo"))
-        et_plain = "Evapotranspiración de referencia calculada con datos reales ERA5-Land y radiación NASA POWER."
+        et_plain = "Cuánta agua evapora el sol y el viento en tu zona según ERA5 y NASA POWER."
     else:
         et_sensor = "ET0 Makkink (NASA POWER)"
-        et_res = "Derivado de radiación solar, VPD y temperatura"
+        et_res = "Calculado con sol, temperatura y humedad del aire"
         et_mode = "estimado"
-        et_plain = "Consumo estimado de agua del cultivo según sol, temperatura y humedad del aire."
+        et_plain = "Agua que necesita tu cultivo según el sol, calor y humedad del ambiente."
 
     if raw_power.get("has_daily_metrics"):
         storm_sensor = "Tormentas (NASA POWER Diario / GPM)"
-        storm_res = "Días diarios >=12 mm y P97 (2006–2025) + capa GIBS"
+        storm_res = "Lluvias intensas medidas día a día (2006–2025)"
         storm_mode = power_mode
-        storm_plain = "Aguaceros fuertes reales medidos día a día durante 20 años y capa visual GPM."
+        storm_plain = "Aguaceros fuertes reales medidos durante 20 años para alertar meses de lavado de tierra (NASA GPM)."
     else:
         storm_sensor = "GPM IMERG"
-        storm_res = "Derivado de lluvia mensual y altura (20 años)"
+        storm_res = "Calculado con lluvia mensual y altura (20 años)"
         storm_mode = "estimado"
-        storm_plain = "Meses con aguaceros que pueden lavar la tierra."
+        storm_plain = "Meses con aguaceros fuertes que pueden lavar la tierra fértil."
 
     dem_source = str(terrain.get("dem_source", ""))
     if dem_source == "srtm_30m_opentopography":
@@ -122,24 +122,24 @@ def _build_dataset_provenance(
             micro_txt = f" · ladera {aspect_lbl}, desnivel {span_m or 0:.0f} m"
         elif aspect_lbl:
             micro_txt = f" · orientación {aspect_lbl}"
-        dem_res = f"30 m reales vía OpenTopography (SRTM GL1{micro_txt})"
+        dem_res = f"Relieve detallado de tu chacra (SRTM 30 m{micro_txt})"
         dem_mode = str(terrain.get("dem_mode") or "guardado")
         dem_plain = (
-            f"Altura, pendiente y orientación ({aspect_lbl}) medidas cada 30 m sobre tu parcela."
+            f"Altura, inclinación y orientación ({aspect_lbl}) medidas con precisión sobre tu parcela (SRTM NASA)."
             if aspect_lbl
-            else "Altura y pendiente reales cada 30 metros de tu parcela."
+            else "Altura e inclinación reales de tu parcela medidas con mapa de relieve NASA SRTM."
         )
     elif dem_source == "open_meteo_cop90":
         dem_sensor = "Copernicus DEM (90 m)"
         aspect_lbl = terrain.get("aspect_label")
-        dem_res = f"Grilla 90 m en vivo (Open-Meteo Elevation{f' · {aspect_lbl}' if aspect_lbl else ''})"
+        dem_res = f"Relieve satelital en vivo{f' · {aspect_lbl}' if aspect_lbl else ''}"
         dem_mode = str(terrain.get("dem_mode", "en_vivo"))
-        dem_plain = "Altura, pendiente y orientación medidas por satélite cada 90 metros."
+        dem_plain = "Altura, inclinación y orientación medidas por satélite Copernicus DEM."
     else:
         dem_sensor = "SRTM / Relieve local"
         dem_res = "Puntos de referencia de Cajamarca"
         dem_mode = "modelo"
-        dem_plain = "Altura y pendiente interpoladas desde puntos de referencia."
+        dem_plain = "Altura e inclinación estimadas desde puntos cercanos de Cajamarca."
 
     soil_prof = terrain.get("soil_profile") or {}
     soil_mode = str(soil_prof.get("source_mode", "calibrado_inia"))
@@ -148,28 +148,28 @@ def _build_dataset_provenance(
         radius_m = soil_prof.get("nearby_radius_m")
         radius_lbl = "~1.3 km" if radius_m and int(radius_m) >= 800 else "~350 m"
         soil_res = (
-            f"Capas 0–30 cm reales · anillo agrícola {radius_lbl}"
+            f"Capa arable (0–30 cm) en zona agrícola ({radius_lbl})"
             if soil_prof.get("nearby_sampled")
-            else "Capas 0–30 cm reales vía REST API"
+            else "Capa arable (0–30 cm) consultada en línea"
         )
         soil_ds_mode = soil_mode
         soil_plain = (
-            f"pH {soil_prof.get('ph', '–')}, textura {soil_prof.get('texture_class', 'franca')}, "
-            f"materia orgánica {soil_prof.get('organic_matter_pct', '–')}% y nitrógeno {soil_prof.get('nitrogen_g_kg', '–')} g/kg."
+            f"Suelo con pH {soil_prof.get('ph', '–')}, textura {soil_prof.get('texture_class', 'franca')}, "
+            f"materia orgánica {soil_prof.get('organic_matter_pct', '–')}% y nitrógeno {soil_prof.get('nitrogen_g_kg', '–')} g/kg (SoilGrids)."
         )
     else:
         soil_sensor = "Suelos ZEE Cajamarca / INIA"
-        soil_res = "Referencia regional 0–30 cm"
+        soil_res = "Referencia regional (0–30 cm)"
         soil_ds_mode = "estimado"
-        soil_plain = "pH, textura y fertilidad estimados desde la zonificación ZEE/INIA de Cajamarca."
+        soil_plain = "pH, textura y fertilidad estimados según mapa de suelos ZEE / INIA Cajamarca."
 
     return [
         {
             "sensor": "NASA POWER (2006–2025) + Sensibilidad 2 años",
-            "resolution": "20 años medidos (~0.5° / ~50 km con downscaling) → Sensibilidad 2026–2027",
-            "variables": "T2M, T2M_MIN, T2M_MAX, PRECTOTCORR, SOLAR, RH2M, GWETTOP, GWETROOT",
+            "resolution": "Historial de 20 años ajustado a la altura exacta de tu chacra",
+            "variables": "Temperatura, lluvias diarias, sol, humedad del aire y del suelo",
             "mode": power_mode,
-            "plain": "20 años históricos de clima y humedad bajados a la altura de tu chacra (sensibilidad a 2 campañas, no sustituye CMIP6).",
+            "plain": "20 años de lluvias, frío y calor adaptados a la altura de tu chacra (NASA POWER) para cuidar las próximas 2 campañas.",
         },
         {
             "sensor": ndvi_sensor,
@@ -847,25 +847,25 @@ def build_harmonized_biophysical_series(
                 else "Tablas referenciales MIDAGRI / INIA Cajamarca por campaña (sin cotización diaria en vivo disponible)."
             ),
             "market_summary": market_summary,
-            "erosion_method_label": "Índice físico derivado (pendiente SRTM, agresividad pluvial diaria NASA POWER y cobertura NDVI).",
+            "erosion_method_label": "Cuidado de ladera estimado según inclinación del terreno (SRTM), lluvias fuertes (NASA POWER) y cobertura verde (Sentinel-2).",
             "spatial_scale_hierarchy": [
                 {
                     "tier": "poligono_parcela",
-                    "resolution": "10–30 m",
-                    "sensors": "Sentinel-2 L2A (10 m) · SRTM GL1 (30 m)",
-                    "scope": "Muestrea geometría, vértices, orientación (aspecto) y desnivel real dentro del polígono de tu chacra.",
+                    "resolution": "Detalle de tu chacra (10–30 m)",
+                    "sensors": "Satélite Sentinel-2 y relieve SRTM",
+                    "scope": "Revisa la forma, altura, inclinación y orientación al sol dentro de tu chacra.",
                 },
                 {
                     "tier": "perimetro_suelo",
-                    "resolution": "250 m",
-                    "sensors": "SoilGrids ISRIC v2.0 + campo",
-                    "scope": "Propiedades edáficas 0–30 cm en la celda o anillo agrícola cercano, calibradas con tus notas en campo.",
+                    "resolution": "Mapa de suelos (250 m)",
+                    "sensors": "SoilGrids + datos de campo",
+                    "scope": "Acidez, textura y nutrientes de la capa arable ajustados con lo que ves en campo.",
                 },
                 {
                     "tier": "atmosferico_regional",
-                    "resolution": "~9–50 km + downscaling",
-                    "sensors": "ERA5-Land (~9 km) · NASA POWER (~0.5°)",
-                    "scope": "Forzamiento climático regional de 20 años ajustado a la altitud (-6.5 °C/km), lluvia orográfica y ladera de la parcela.",
+                    "resolution": "Clima 20 años ajustado a tu altura",
+                    "sensors": "NASA POWER · ERA5",
+                    "scope": "Historial de 20 años adaptado a la altitud y lluvias exactas de tu parcela.",
                 },
             ],
             "harmonized_datasets": _build_dataset_provenance(

@@ -107,6 +107,8 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voiceError, setVoiceError] = useState<string | null>(null);
   const [isSendingAudio, setIsSendingAudio] = useState(false);
+  const [pendingChoiceValue, setPendingChoiceValue] = useState<string | null>(null);
+  const [pendingChoiceLabel, setPendingChoiceLabel] = useState<string | null>(null);
 
   // Embedded interactive map picker modal state
   const [mapPickerOpen, setMapPickerOpen] = useState(false);
@@ -391,19 +393,82 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
 
   const sendTranscriptSafe = async (
     text: string,
-    opts?: { forceCalculate?: boolean }
+    opts?: { forceCalculate?: boolean; displayLabel?: string }
   ) => {
+    if (busy) return;
+    Speech.stop();
+    setIsSpeaking(false);
+    Haptics.selectionAsync();
     setVoiceError(null);
+    setPendingChoiceValue(text);
+    setPendingChoiceLabel(opts?.displayLabel || text);
     try {
       await onSubmitTranscript(text, opts);
     } catch (err) {
       setVoiceError(
         err instanceof Error
           ? err.message
-          : "No se pudo conectar al backend NASA. Verifica tu conexión."
+          : "No se pudo conectar al servidor. Verifica tu conexión."
       );
+    } finally {
+      setPendingChoiceValue(null);
+      setPendingChoiceLabel(null);
     }
   };
+
+  const renderQuestionChips = (
+    chips: Array<{ label: string; value: string }>,
+    busyVerb: string
+  ) => (
+    <>
+      <View style={styles.chipsWrap}>
+        {chips.map((chip, cidx) => {
+          const isSelectedPending = busy && pendingChoiceValue === chip.value;
+          return (
+            <TouchableOpacity
+              key={cidx}
+              disabled={busy}
+              activeOpacity={0.85}
+              onPress={() =>
+                void sendTranscriptSafe(chip.value, {
+                  displayLabel: chip.label,
+                })
+              }
+              style={[
+                styles.answerChipBtn,
+                isSelectedPending && styles.answerChipBtnSelected,
+                busy && !isSelectedPending && { opacity: 0.45 },
+              ]}
+            >
+              <View style={styles.answerChipInner}>
+                {isSelectedPending && (
+                  <ActivityIndicator size="small" color={COLORS.forestDeep} />
+                )}
+                <Text
+                  style={[
+                    styles.answerChipText,
+                    isSelectedPending && styles.answerChipTextSelected,
+                  ]}
+                >
+                  {chip.label}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+      {busy && (
+        <View style={styles.guidedBusyRow}>
+          <ActivityIndicator size="small" color={COLORS.limeBright} />
+          <Text style={styles.guidedBusyText}>
+            {pendingChoiceLabel
+              ? `${busyVerb} “${pendingChoiceLabel}”...`
+              : "Procesando tu respuesta..."}
+          </Text>
+        </View>
+      )}
+    </>
+  );
 
   const handleSaveAndCloseMap = async () => {
     setIsSavingMap(true);
@@ -578,6 +643,21 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                   <Text style={styles.errorBannerText}>{voiceError}</Text>
                 </View>
               )}
+
+              {busy && (
+                <View style={styles.processingPillRow}>
+                  <ActivityIndicator size="small" color={COLORS.limeBright} />
+                  <Text style={styles.processingPillText} numberOfLines={2}>
+                    {isSendingAudio
+                      ? "Escuchando y analizando tu audio..."
+                      : isSavingMap
+                        ? "Guardando ubicación de tu chacra..."
+                        : pendingChoiceLabel
+                          ? `Procesando “${pendingChoiceLabel}”...`
+                          : "AgroConecta IA está pensando..."}
+                  </Text>
+                </View>
+              )}
             </View>
 
             {/* SPOKEN & GUIDED INTERACTIVE RESPONSE RIGHT BELOW MIC */}
@@ -593,7 +673,7 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                           ? "Fuera de tema agrícola"
                           : lastResponse.conversation_stage === "qa"
                             ? lastResponse.intent_mode === "app_help"
-                              ? "Ayuda AgroRumbo"
+                              ? "Ayuda AgroConecta"
                               : "Respuesta con datos NASA"
                             : lang === "qu"
                               ? "Chaskisqa"
@@ -641,104 +721,104 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
 
                 {/* 6-SLOT CHECKLIST STATUS PILLS (SHARED WITH MANUAL FLOW) */}
                 {lastResponse.conversation_stage !== "out_of_scope" && (
-                <View style={styles.understoodStrip}>
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      mergedSlots.location_confirmed &&
+                  <View style={styles.understoodStrip}>
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        mergedSlots.location_confirmed &&
                         mergedSlots.map_verified &&
                         styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>1. Parcela</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.location_confirmed
-                        ? mergedSlots.map_verified
-                          ? `${detectedZoneTitle} (Verificada)`
-                          : `${detectedZoneTitle} (Falta mapa)`
-                        : "Por ubicar"}
-                    </Text>
-                  </View>
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>1. Parcela</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.location_confirmed
+                          ? mergedSlots.map_verified
+                            ? `${detectedZoneTitle} (Verificada)`
+                            : `${detectedZoneTitle} (Falta mapa)`
+                          : "Por ubicar"}
+                      </Text>
+                    </View>
 
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      mergedSlots.water_confirmed && styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>2. Agua / Riego</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.water_confirmed
-                        ? mergedSlots.water_label || lastResponse.understood.water
-                        : "Pendiente"}
-                    </Text>
-                  </View>
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        mergedSlots.water_confirmed && styles.understoodItemConfirmed,
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>2. Agua / Riego</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.water_confirmed
+                          ? mergedSlots.water_label || lastResponse.understood.water
+                          : "Pendiente"}
+                      </Text>
+                    </View>
 
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      mergedSlots.crop_confirmed && styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>3. Cultivo previo</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.crop_confirmed
-                        ? mergedSlots.crop_label || lastResponse.understood.crop
-                        : "Pendiente"}
-                    </Text>
-                  </View>
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        mergedSlots.crop_confirmed && styles.understoodItemConfirmed,
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>3. Cultivo previo</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.crop_confirmed
+                          ? mergedSlots.crop_label || lastResponse.understood.crop
+                          : "Pendiente"}
+                      </Text>
+                    </View>
 
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      mergedSlots.soil_confirmed && styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>4. Suelo</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.soil_confirmed
-                        ? mergedSlots.soil_label ||
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        mergedSlots.soil_confirmed && styles.understoodItemConfirmed,
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>4. Suelo</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.soil_confirmed
+                          ? mergedSlots.soil_label ||
                           lastResponse.estado_parcela?.textura_y_drenaje ||
                           "Dato satelital SoilGrids"
-                        : "Pendiente"}
-                    </Text>
-                  </View>
+                          : "Pendiente"}
+                      </Text>
+                    </View>
 
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      mergedSlots.climate_risk_confirmed &&
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        mergedSlots.climate_risk_confirmed &&
                         styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>5. Clima / Helada</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.climate_risk_confirmed
-                        ? mergedSlots.climate_risk_label ||
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>5. Clima / Helada</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.climate_risk_confirmed
+                          ? mergedSlots.climate_risk_label ||
                           lastResponse.estado_parcela?.riesgo_climatico ||
                           "Dato satelital NASA"
-                        : "Pendiente"}
-                    </Text>
-                  </View>
+                          : "Pendiente"}
+                      </Text>
+                    </View>
 
-                  <View
-                    style={[
-                      styles.understoodItem,
-                      (mergedSlots.goal_confirmed || mergedSlots.seeds_checked) &&
+                    <View
+                      style={[
+                        styles.understoodItem,
+                        (mergedSlots.goal_confirmed || mergedSlots.seeds_checked) &&
                         styles.understoodItemConfirmed,
-                    ]}
-                  >
-                    <Text style={styles.understoodLabel}>6. Objetivo / Semillas</Text>
-                    <Text style={styles.understoodVal} numberOfLines={2}>
-                      {mergedSlots.goal_confirmed || mergedSlots.seeds_checked
-                        ? mergedSlots.goal_label ||
+                      ]}
+                    >
+                      <Text style={styles.understoodLabel}>6. Objetivo / Semillas</Text>
+                      <Text style={styles.understoodVal} numberOfLines={2}>
+                        {mergedSlots.goal_confirmed || mergedSlots.seeds_checked
+                          ? mergedSlots.goal_label ||
                           lastResponse.understood.seeds ||
                           lastResponse.estado_parcela?.objetivo_agricultor ||
                           "Confirmado"
-                        : "Pendiente"}
-                    </Text>
+                          : "Pendiente"}
+                      </Text>
+                    </View>
                   </View>
-                </View>
                 )}
 
                 {/* EMBEDDED INTERACTIVE MAP CARD (OPEN TO PINPOINT OR DRAW PARCEL) */}
@@ -746,79 +826,79 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                   (lastResponse.show_map_picker ||
                     Boolean(previewTerrain) ||
                     mergedSlots.location_confirmed) && (
-                  <View style={styles.inlineMapCard}>
-                    <View style={styles.inlineMapHeaderRow}>
-                      <View style={styles.inlineMapTitleRow}>
-                        <MapPin size={16} color={COLORS.limeBright} />
-                        <Text style={styles.inlineMapTitle} numberOfLines={1}>
-                          {detectedZoneTitle}
-                        </Text>
-                      </View>
-                      <View
-                        style={[
-                          styles.mapStatusPill,
-                          mergedSlots.map_verified && styles.mapStatusPillDone,
-                        ]}
-                      >
-                        <Text
+                    <View style={styles.inlineMapCard}>
+                      <View style={styles.inlineMapHeaderRow}>
+                        <View style={styles.inlineMapTitleRow}>
+                          <MapPin size={16} color={COLORS.limeBright} />
+                          <Text style={styles.inlineMapTitle} numberOfLines={1}>
+                            {detectedZoneTitle}
+                          </Text>
+                        </View>
+                        <View
                           style={[
-                            styles.mapStatusText,
-                            mergedSlots.map_verified && {
-                              color: COLORS.forestDeep,
-                            },
+                            styles.mapStatusPill,
+                            mergedSlots.map_verified && styles.mapStatusPillDone,
                           ]}
                         >
-                          {mergedSlots.map_verified
-                            ? "Parcela fijada"
-                            : "Ajustar punto"}
-                        </Text>
-                      </View>
-                    </View>
-
-                    <Text style={styles.inlineMapCoords}>
-                      Coordenadas: {detectedLat.toFixed(4)}, {detectedLon.toFixed(4)}
-                      {customPolygon && customPolygon.length >= 3
-                        ? ` · Polígono marcado (${customPolygon.length} vértices)`
-                        : ""}
-                    </Text>
-
-                    {previewTerrain && previewBio && (
-                      <View style={styles.nasaPreviewGrid}>
-                        <View style={styles.nasaPreviewCell}>
-                          <Text style={styles.nasaPreviewLabel}>Altitud</Text>
-                          <Text style={styles.nasaPreviewVal}>
-                            {Math.round(previewTerrain.elevation_m)} m
-                          </Text>
-                        </View>
-                        <View style={styles.nasaPreviewCell}>
-                          <Text style={styles.nasaPreviewLabel}>Temp. NASA</Text>
-                          <Text style={styles.nasaPreviewVal}>
-                            {previewBio.summary.mean_temp_c.toFixed(1)} °C
-                          </Text>
-                        </View>
-                        <View style={styles.nasaPreviewCell}>
-                          <Text style={styles.nasaPreviewLabel}>Lluvia anual</Text>
-                          <Text style={styles.nasaPreviewVal}>
-                            {Math.round(previewBio.summary.annual_precip_mm)} mm
+                          <Text
+                            style={[
+                              styles.mapStatusText,
+                              mergedSlots.map_verified && {
+                                color: COLORS.forestDeep,
+                              },
+                            ]}
+                          >
+                            {mergedSlots.map_verified
+                              ? "Parcela fijada"
+                              : "Ajustar punto"}
                           </Text>
                         </View>
                       </View>
-                    )}
 
-                    <TouchableOpacity
-                      onPress={handleOpenMapPicker}
-                      style={styles.openMapPickerBtn}
-                      activeOpacity={0.88}
-                    >
-                      <Compass size={17} color={COLORS.forestDeep} strokeWidth={2.4} />
-                      <Text style={styles.openMapPickerBtnText}>
-                        {mergedSlots.map_verified
-                          ? "Editar parcela o polígono en el mapa"
-                          : "Confirmar exactamente mi parcela en el mapa"}
+                      <Text style={styles.inlineMapCoords}>
+                        Coordenadas: {detectedLat.toFixed(4)}, {detectedLon.toFixed(4)}
+                        {customPolygon && customPolygon.length >= 3
+                          ? ` · Límites marcados (${customPolygon.length} puntos)`
+                          : ""}
                       </Text>
-                    </TouchableOpacity>
-                  </View>
-                )}
+
+                      {previewTerrain && previewBio && (
+                        <View style={styles.nasaPreviewGrid}>
+                          <View style={styles.nasaPreviewCell}>
+                            <Text style={styles.nasaPreviewLabel}>Altitud</Text>
+                            <Text style={styles.nasaPreviewVal}>
+                              {Math.round(previewTerrain.elevation_m)} m
+                            </Text>
+                          </View>
+                          <View style={styles.nasaPreviewCell}>
+                            <Text style={styles.nasaPreviewLabel}>Temp. NASA</Text>
+                            <Text style={styles.nasaPreviewVal}>
+                              {previewBio.summary.mean_temp_c.toFixed(1)} °C
+                            </Text>
+                          </View>
+                          <View style={styles.nasaPreviewCell}>
+                            <Text style={styles.nasaPreviewLabel}>Lluvia anual</Text>
+                            <Text style={styles.nasaPreviewVal}>
+                              {Math.round(previewBio.summary.annual_precip_mm)} mm
+                            </Text>
+                          </View>
+                        </View>
+                      )}
+
+                      <TouchableOpacity
+                        onPress={handleOpenMapPicker}
+                        style={styles.openMapPickerBtn}
+                        activeOpacity={0.88}
+                      >
+                        <Compass size={17} color={COLORS.forestDeep} strokeWidth={2.4} />
+                        <Text style={styles.openMapPickerBtnText}>
+                          {mergedSlots.map_verified
+                            ? "Editar ubicación o límites en el mapa"
+                            : "Confirmar exactamente mi parcela en el mapa"}
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  )}
 
                 {/* PROGRESSIVE GUIDED FOLLOW-UP QUESTION + QUICK CHIPS + VOICE */}
                 {lastResponse.conversation_stage === "collecting_info" &&
@@ -835,22 +915,10 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                       </Text>
 
                       {lastResponse.question_chips &&
-                        lastResponse.question_chips.length > 0 && (
-                          <View style={styles.chipsWrap}>
-                            {lastResponse.question_chips.map((chip, cidx) => (
-                              <TouchableOpacity
-                                key={cidx}
-                                disabled={busy}
-                                activeOpacity={0.85}
-                                onPress={() => void sendTranscriptSafe(chip.value)}
-                                style={styles.answerChipBtn}
-                              >
-                                <Text style={styles.answerChipText}>
-                                  {chip.label}
-                                </Text>
-                              </TouchableOpacity>
-                            ))}
-                          </View>
+                        lastResponse.question_chips.length > 0 &&
+                        renderQuestionChips(
+                          lastResponse.question_chips,
+                          "Anotando"
                         )}
 
                       <Text style={styles.voiceReplyHint}>
@@ -862,6 +930,7 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                         onPress={() =>
                           void sendTranscriptSafe("Evaluar estrategias ahora", {
                             forceCalculate: true,
+                            displayLabel: "Calculando tus 3 rotaciones",
                           })
                         }
                         style={styles.forceCalcLinkBtn}
@@ -883,8 +952,8 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                     sc.note ||
                     (sc.unviable.length > 0
                       ? `Semillas descartadas por clima/altitud: ${sc.unviable
-                          .map((u) => `${u.crop_name} (${u.reason})`)
-                          .join("; ")}.`
+                        .map((u) => `${u.crop_name} (${u.reason})`)
+                        .join("; ")}.`
                       : `Priorizando tus semillas viables (${sc.viable_used.length}) entre los ${sc.evaluated_catalog_count} cultivos evaluados.`);
                   return (
                     <View
@@ -957,21 +1026,10 @@ export const VoiceCopilotModal: React.FC<VoiceCopilotModalProps> = ({
                       <Text style={styles.guidedQuestionText}>
                         {lastResponse.next_question}
                       </Text>
-                      <View style={styles.chipsWrap}>
-                        {lastResponse.question_chips.map((chip, cidx) => (
-                          <TouchableOpacity
-                            key={cidx}
-                            disabled={busy}
-                            activeOpacity={0.85}
-                            onPress={() => void sendTranscriptSafe(chip.value)}
-                            style={styles.answerChipBtn}
-                          >
-                            <Text style={styles.answerChipText}>
-                              {chip.label}
-                            </Text>
-                          </TouchableOpacity>
-                        ))}
-                      </View>
+                      {renderQuestionChips(
+                        lastResponse.question_chips,
+                        "Actualizando plan con"
+                      )}
                     </View>
                   )}
               </View>

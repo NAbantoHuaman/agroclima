@@ -332,7 +332,7 @@ export const InteractiveMapTab: React.FC<InteractiveMapTabProps> = ({
         terrain?.slope_pct !== undefined && terrain?.slope_pct !== null
           ? `${terrain.slope_pct.toFixed(1)}%`
           : "--";
-      raw = `Parcela a ${elevTxt} · Pendiente ${slopeTxt} · Toca una tarjeta arriba para superponer una capa satelital`;
+      raw = `Tu chacra está a ${elevTxt} · Inclinación ${slopeTxt} · Toca una tarjeta arriba para ver humedad, verdor o heladas`;
     } else if (activeLayer === "ndvi") {
       const months = displayedResult.biophysical.monthly_series || [];
       const avgNdvi = months.length
@@ -341,28 +341,28 @@ export const InteractiveMapTab: React.FC<InteractiveMapTabProps> = ({
       const lastNdviTxt =
         typeof bioSummary.latest_ndvi === "number"
           ? bioSummary.latest_ndvi_date
-            ? `Últ. ${bioSummary.latest_ndvi_date}: NDVI ${bioSummary.latest_ndvi.toFixed(2)} · `
-            : `NDVI actual ${bioSummary.latest_ndvi.toFixed(2)} · `
+            ? `Última foto (${bioSummary.latest_ndvi_date}): verdor ${bioSummary.latest_ndvi.toFixed(2)} · `
+            : `Verdor actual ${bioSummary.latest_ndvi.toFixed(2)} · `
           : "";
-      raw = `${lastNdviTxt}prom. anual ${avgNdvi} · ${bioSummary.bare_soil_month_count} meses suelo desnudo`;
+      raw = `${lastNdviTxt}promedio anual ${avgNdvi} · ${bioSummary.bare_soil_month_count} meses con tierra descubierta`;
     } else if (activeLayer === "smap") {
       const smapTxt = waterDepthPct !== null ? `${waterDepthPct}%` : "--";
-      raw = `Humedad radicular SMAP ${smapTxt} · Balance ${Math.round(
+      raw = `Agua en zona de raíces: ${smapTxt} · Balance anual de lluvia ${Math.round(
         bioSummary.annual_water_balance_mm
-      )} mm/año`;
+      )} mm`;
     } else if (activeLayer === "frost") {
       const win = terrain?.frost_risk_window || "Estacional";
-      raw = `Mín. ${climateSummary.min_temp_c.toFixed(1)}°C · ${
+      raw = `Frío mínimo de ${climateSummary.min_temp_c.toFixed(1)}°C · ${
         climateSummary.frost_month_count
-      } meses con riesgo (${win})`;
+      } meses con riesgo de helada (${win})`;
     } else {
       const slopeTxt =
         terrain?.slope_pct !== undefined && terrain?.slope_pct !== null
           ? `${terrain.slope_pct.toFixed(1)}%`
           : "--";
-      raw = `Pendiente ${slopeTxt} · Índice físico erosión ${Math.round(
+      raw = `Inclinación ${slopeTxt} · Riesgo de lavado de tierra ${Math.round(
         bioSummary.mean_erosion_risk
-      )}/100 · ${bioSummary.erosive_storm_months.length} meses de tormenta`;
+      )}/100 · ${bioSummary.erosive_storm_months.length} meses con lluvias fuertes`;
     }
     return translateCropText(raw, lang);
   }, [activeLayer, isQu, lang, displayedResult, terrain, waterDepthPct]);
@@ -714,7 +714,7 @@ export const InteractiveMapTab: React.FC<InteractiveMapTabProps> = ({
                     <Text style={styles.mapStatusPillText}>
                       Esquinas: {draftPoly.length} ·{" "}
                       {draftPoly.length >= 3
-                        ? "Toca Listo para cerrar polígono"
+                        ? "Toca Listo para cerrar tu chacra"
                         : "Toca el mapa para marcar tu chacra"}
                     </Text>
                   </>

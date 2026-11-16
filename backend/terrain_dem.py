@@ -183,17 +183,17 @@ def _summarize_vertex_differential_risk(
     parts: List[str] = []
     if elev_span >= 4.0:
         parts.append(
-            f"Desnivel interno de {elev_span:.0f} m ({min(pt_elevs):.0f}–{max(pt_elevs):.0f} m): "
-            "borde bajo acumula aire frío/humedad y parte alta escurre primero."
+            f"Tu terreno tiene {elev_span:.0f} m de desnivel (entre {min(pt_elevs):.0f} y {max(pt_elevs):.0f} m): "
+            "la parte baja junta más frío y humedad, y la parte alta escurre primero."
         )
     if slope_max >= 12.0 or (slope_max - slope_min) >= 3.5:
         parts.append(
-            f"Sector más inclinado alcanza {slope_max:.1f}% (vs {slope_min:.1f}% mínimo): "
-            "trazar surcos en contorno y cobertura viva en la parte empinada."
+            f"La zona más inclinada llega a {slope_max:.1f}% (frente a {slope_min:.1f}% en lo plano): "
+            "conviene hacer surcos siguiendo la ladera y mantener cobertura verde para cuidar la tierra."
         )
     if not parts:
         parts.append(
-            f"Relieve uniforme en vértices ({min(pt_elevs):.0f}–{max(pt_elevs):.0f} m, pendiente máx. {slope_max:.1f}%)."
+            f"Terreno bastante parejo (entre {min(pt_elevs):.0f} y {max(pt_elevs):.0f} m, inclinación máx. {slope_max:.1f}%)."
         )
     return " ".join(parts)
 

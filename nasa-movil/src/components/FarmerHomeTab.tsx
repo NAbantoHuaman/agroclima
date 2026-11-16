@@ -217,17 +217,55 @@ export const FarmerHomeTab: React.FC<FarmerHomeTabProps> = ({
       setIsSpeaking(false);
       return;
     }
-    const cropsList = recommendedStrat.phases
-      .filter((p) => p.crop_id !== "suelo_desnudo")
-      .map((p) => translateCropText(p.crop_name, lang))
-      .join(isQu ? ", qipanman " : ", luego ");
+
+    const speakSummary = (text: string) => {
+      setIsSpeaking(true);
+      Speech.speak(text, {
+        language: "es-PE",
+        rate: 0.95,
+        onDone: () => setIsSpeaking(false),
+        onStopped: () => setIsSpeaking(false),
+        onError: () => setIsSpeaking(false),
+      });
+    };
+
+    if (!hasLocatedParcel) {
+      speakSummary(
+        isQu
+          ? "Allinllachu chakra ruraq. Ñawpaqta chakraykita hawapi GPS-wan utaq maskanawan tariy, manaqa urapi mikrófono ñit'ispa willaway. Chaynapi pachatawan allpata qhawananchikpaq."
+          : "Hola agricultor. Primero ubica tu chacra arriba tocando Usar mi GPS o Buscar mi sector, o háblale al asistente con el botón del micrófono. Así revisaremos el clima, la altura y el suelo de tu parcela."
+      );
+      return;
+    }
 
     const elevSpeech =
       terrain?.elevation_m !== undefined && terrain?.elevation_m !== null
         ? isQu
           ? `, ${Math.round(terrain.elevation_m)} metros sayayninpi`
-          : `, a ${Math.round(terrain.elevation_m)} metros`
+          : `, a ${Math.round(terrain.elevation_m)} metros de altura`
         : "";
+
+    if (!isPlanReady) {
+      const remainingSteps = Math.max(0, 6 - completedChecklistCount);
+      speakSummary(
+        isQu
+          ? `Allinllachu chakra ruraq. ${translateCropText(zoneTitle, lang)} suyupi${elevSpeech}, ` +
+            `kunan pacha ruphayqa ${liveTempC.toFixed(1)} grado, wata tamyaqa ${climateSummary.annual_precip_mm} milímetro. ` +
+            `Qasa chikiqa ${frostRiskLabel}. ` +
+            `Chaymanta muyuy tarpuyta wakichinapaqqa urapi ${completedChecklistCount} de 6 tapuykunata tukuy utaq mikrófonowan willaway.`
+          : `Hola agricultor. Tu parcela en ${zoneTitle}${elevSpeech} tiene ahora ${liveTempC.toFixed(1)} grados (${liveWeatherLabel}), ` +
+            `lluvia anual de ${climateSummary.annual_precip_mm} milímetros y riesgo de helada ${frostRiskLevel}. ` +
+            `Aún faltan ${remainingSteps} de los 6 datos de agua, cultivo y suelo para armar tu plan de rotación. ` +
+            `Complétalos aquí abajo o háblale al asistente con el micrófono.`
+      );
+      return;
+    }
+
+    const cropsList = recommendedStrat.phases
+      .filter((p) => p.crop_id !== "suelo_desnudo")
+      .map((p) => translateCropText(p.crop_name, lang))
+      .join(isQu ? ", qipanman " : ", luego ");
+
     const marginSpeech =
       recommendedStrat.metrics.net_margin_2yr_soles_ha !== null &&
       recommendedStrat.metrics.net_margin_2yr_soles_ha !== undefined
@@ -236,26 +274,19 @@ export const FarmerHomeTab: React.FC<FarmerHomeTabProps> = ({
           : ` Con este plan puedes lograr un margen estimado de ${recommendedStrat.metrics.net_margin_2yr_soles_ha} soles por hectárea.`
         : "";
 
-    const speechText = isQu
-      ? `Allinllachu chakra ruraq. ${translateCropText(zoneTitle, lang)} suyupi${elevSpeech}, ` +
-        `kunan pacha ruphayqa ${liveTempC.toFixed(1)} grado, wata tamyaqa ${climateSummary.annual_precip_mm} milímetro. ` +
-        `Qasa chikiqa ${frostRiskLabel}. ` +
-        `Iskay wata allpayki allin kananpaq kaykunata muyuchiy: ${cropsList}.` +
-        marginSpeech
-      : `Hola agricultor. En ${zoneTitle}${elevSpeech}, ` +
-        `la temperatura actual es ${liveTempC.toFixed(1)} grados (${liveWeatherLabel}) y la lluvia anual es ${climateSummary.annual_precip_mm} milímetros. ` +
-        `El riesgo de helada es ${frostRiskLevel}. ` +
-        `Para cuidar tu tierra y tu bolsillo los próximos 2 años, te recomendamos rotar: ${cropsList}. ` +
-        marginSpeech;
-
-    setIsSpeaking(true);
-    Speech.speak(speechText, {
-      language: "es-PE",
-      rate: 0.95,
-      onDone: () => setIsSpeaking(false),
-      onStopped: () => setIsSpeaking(false),
-      onError: () => setIsSpeaking(false),
-    });
+    speakSummary(
+      isQu
+        ? `Allinllachu chakra ruraq. ${translateCropText(zoneTitle, lang)} suyupi${elevSpeech}, ` +
+          `kunan pacha ruphayqa ${liveTempC.toFixed(1)} grado, wata tamyaqa ${climateSummary.annual_precip_mm} milímetro. ` +
+          `Qasa chikiqa ${frostRiskLabel}. ` +
+          `Iskay wata allpayki allin kananpaq kaykunata muyuchiy: ${cropsList}.` +
+          marginSpeech
+        : `Hola agricultor. En ${zoneTitle}${elevSpeech}, ` +
+          `la temperatura actual es ${liveTempC.toFixed(1)} grados (${liveWeatherLabel}) y la lluvia anual es ${climateSummary.annual_precip_mm} milímetros. ` +
+          `El riesgo de helada es ${frostRiskLevel}. ` +
+          `Para cuidar tu tierra y tu bolsillo los próximos 2 años, te recomendamos rotar: ${cropsList}.` +
+          marginSpeech
+    );
   };
 
   return (

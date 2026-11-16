@@ -86,22 +86,22 @@ async def process_voice_assistant_turn(req: VoiceAssistantRequest) -> Dict[str, 
                 direct_txt = (
                     "Solo puedo ayudarte con temas agrícolas de tu chacra: clima de la NASA, suelo, agua y cultivos recomendados."
                     if intent_mode == "out_of_scope"
-                    else "En AgroRumbo puedes usar el micrófono para ubicarte, abrir el mapa para marcar tu chacra y revisar tu plan de rotación y catálogo de semillas."
+                    else "En AgroConecta puedes usar el micrófono para ubicarte, abrir el mapa para marcar tu chacra y revisar tu plan de rotación y catálogo de semillas."
                 )
             helper_cards = (
                 [
                     {
-                        "title": "Cómo puedo ayudarte en AgroRumbo",
+                        "title": "Cómo puedo ayudarte en AgroConecta",
                         "badge": "Asistente Agrícola",
-                        "body": "Pregúntame por el clima, heladas o pH de tu distrito (ej. Cajabamba), compara tus semillas o dime dónde está tu chacra para armar tu rotación.",
+                        "body": "Pregúntame por el clima, heladas o suelo de tu distrito (ej. Cajabamba), compara tus semillas o dime dónde está tu chacra para armar tu rotación.",
                     }
                 ]
                 if intent_mode == "out_of_scope"
                 else [
                     {
                         "title": "Guía rápida de la app",
-                        "badge": "AgroRumbo",
-                        "body": "Usa Inicio para ver alertas climáticas, Mapa para mover el punto o dibujar tu parcela, Plan para ver rotaciones a 24 meses y Semillas para explorar los 24 cultivos.",
+                        "badge": "AgroConecta",
+                        "body": "Usa Inicio para ver alertas del tiempo, Mapa para marcar tu parcela, Plan para ver rotaciones a 24 meses y Semillas para explorar los 24 cultivos.",
                     }
                 ]
             )
@@ -349,6 +349,7 @@ async def process_voice_assistant_turn(req: VoiceAssistantRequest) -> Dict[str, 
                 biophysical=biophysical,
                 parsed_intent=parsed,
                 dialogue_state=dialogue_state,
+                history=req.history,
             )
 
         spoken_text = spoken_bundle["spoken_text"]

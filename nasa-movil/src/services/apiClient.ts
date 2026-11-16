@@ -40,11 +40,14 @@ function appendHostCandidates(rawHostUri: string, bases: string[]): void {
   }
 }
 
+const DEFAULT_CLOUD_API_URL = "https://agroclima-fx55.onrender.com/api";
+
 /**
  * Builds candidate backend `/api` (or Metro `/agro-api`) base URLs in priority order:
  * 1. Explicit custom server URL
- * 2. Direct LAN FastAPI server on port 8000 (derived from Expo host / scriptURL IP)
- * 3. Active Metro dev server origin + /agro-api (works through --tunnel ngrok AND --lan)
+ * 2. Active LAN FastAPI server / Metro /agro-api during local Expo Go dev
+ * 3. Build-time EXPO_PUBLIC_API_URL or default cloud HTTPS backend (Render)
+ * 4. Local loopback fallback
  */
 export function resolveApiBaseCandidates(): string[] {
   const bases: string[] = [];
@@ -80,6 +83,13 @@ export function resolveApiBaseCandidates(): string[] {
     // ignore
   }
 
+  const publicApiUrl = process.env.EXPO_PUBLIC_API_URL;
+  if (publicApiUrl && typeof publicApiUrl === "string" && publicApiUrl.trim()) {
+    const cleanPub = publicApiUrl.trim().replace(/\/+$/, "");
+    bases.push(cleanPub.endsWith("/api") || cleanPub.endsWith("/agro-api") ? cleanPub : `${cleanPub}/api`);
+  }
+
+  bases.push(DEFAULT_CLOUD_API_URL);
   bases.push("http://127.0.0.1:8000/api");
   return Array.from(new Set(bases));
 }
@@ -118,10 +128,28 @@ class HttpResponseError extends Error {
   }
 }
 
+async function probeBaseGroup(bases: string[], timeoutMs: number): Promise<string | null> {
+  if (bases.length === 0) return null;
+  const checks = await Promise.allSettled(
+    bases.map(async (base) => {
+      const res = await fetchWithTimeout(`${base}/health`, {}, timeoutMs);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return base;
+    })
+  );
+  const healthySet = new Set(
+    checks
+      .filter((c): c is PromiseFulfilledResult<string> => c.status === "fulfilled")
+      .map((c) => c.value)
+  );
+  return bases.find((b) => healthySet.has(b)) ?? null;
+}
+
 async function probeHealthyBase(): Promise<string> {
   if (cachedActiveApiBase) {
     try {
-      const quick = await fetchWithTimeout(`${cachedActiveApiBase}/health`, {}, 2500);
+      const quickTimeout = cachedActiveApiBase.startsWith("https://") ? 20000 : 2500;
+      const quick = await fetchWithTimeout(`${cachedActiveApiBase}/health`, {}, quickTimeout);
       if (quick.ok) return cachedActiveApiBase;
     } catch {
       cachedActiveApiBase = null;
@@ -134,29 +162,43 @@ async function probeHealthyBase(): Promise<string> {
 
   activeProbePromise = (async () => {
     const candidates = resolveApiBaseCandidates();
-    const checks = await Promise.allSettled(
-      candidates.map(async (base) => {
-        const res = await fetchWithTimeout(`${base}/health`, {}, 3500);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return base;
-      })
-    );
+    if (customServerUrl && candidates.length > 0) {
+      const explicitMatch = await probeBaseGroup(
+        [candidates[0]],
+        candidates[0].startsWith("https://") ? 45000 : 5000
+      );
+      if (explicitMatch) {
+        cachedActiveApiBase = explicitMatch;
+        return explicitMatch;
+      }
+    }
 
-    const healthySet = new Set(
-      checks
-        .filter((c): c is PromiseFulfilledResult<string> => c.status === "fulfilled")
-        .map((c) => c.value)
+    const localCandidates = candidates.filter(
+      (b) => b.startsWith("http://") && !b.includes("127.0.0.1")
     );
+    const localChosen = await probeBaseGroup(localCandidates, 2500);
+    if (localChosen) {
+      cachedActiveApiBase = localChosen;
+      return localChosen;
+    }
 
-    const chosen = candidates.find((b) => healthySet.has(b));
-    if (chosen) {
-      cachedActiveApiBase = chosen;
-      return chosen;
+    const cloudCandidates = candidates.filter((b) => b.startsWith("https://"));
+    const cloudChosen = await probeBaseGroup(cloudCandidates, 45000);
+    if (cloudChosen) {
+      cachedActiveApiBase = cloudChosen;
+      return cloudChosen;
+    }
+
+    const loopbackCandidates = candidates.filter((b) => b.includes("127.0.0.1"));
+    const loopbackChosen = await probeBaseGroup(loopbackCandidates, 2000);
+    if (loopbackChosen) {
+      cachedActiveApiBase = loopbackChosen;
+      return loopbackChosen;
     }
 
     throw new Error(
-      `No se pudo conectar al servidor agronómico NASA (${candidates.slice(0, 3).join(", ")}). ` +
-        "Verifica que el backend FastAPI esté encendido en el puerto 8000 o que tu celular esté en la misma red / túnel."
+      `No se pudo conectar al servidor agronómico (${candidates.slice(0, 2).join(", ")}). ` +
+        "Verifica tu conexión a internet o que el backend esté activo."
     );
   })().finally(() => {
     activeProbePromise = null;
@@ -189,7 +231,8 @@ async function callBackendJson<T>(
     const url = `${base}${cleanSuffix}`;
     if (i > 0) {
       try {
-        const ping = await fetchWithTimeout(`${base}/health`, {}, 2000);
+        const pingMs = base.startsWith("https://") ? 20000 : 2000;
+        const ping = await fetchWithTimeout(`${base}/health`, {}, pingMs);
         if (!ping.ok) continue;
       } catch {
         continue;
@@ -249,7 +292,7 @@ export async function requestReferenceData(): Promise<
   const { data, endpointUsed } = await callBackendJson<ReferenceDataResponse>(
     "/reference-data",
     { method: "GET" },
-    10000
+    35000
   );
   return { data, sourceMode: "lan_backend", endpointUsed };
 }
@@ -272,7 +315,7 @@ export async function requestGeocodePlace(
   const { data, endpointUsed } = await callBackendJson<GeocodePlaceResponse>(
     `/geocode?q=${encoded}`,
     { method: "GET" },
-    10000
+    25000
   );
   return { data, sourceMode: "lan_backend", endpointUsed };
 }

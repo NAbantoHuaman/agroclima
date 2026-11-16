@@ -157,7 +157,7 @@ export const ParcelCalibrationChecklist: React.FC<
       <View style={styles.slotBlock}>
         <View style={styles.slotHeaderRow}>
           <Text style={styles.slotTitleText}>
-            1. Polígono exacto de tu parcela
+            1. Límites exactos de tu chacra en el mapa
           </Text>
           <Text
             style={[

@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "AgroClima NASA Cajamarca",
+    "name": "AgroConecta",
     "slug": "nasa-movil",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#162F1C"
+    },
     "androidStatusBar": {
-      "backgroundColor": "#162B19",
+      "backgroundColor": "#162F1C",
       "barStyle": "light-content"
     },
     "ios": {
@@ -19,13 +24,14 @@
     },
     "android": {
       "package": "com.agrocajamarca.nasamovil",
+      "versionCode": 2,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
         "RECORD_AUDIO"
       ],
       "adaptiveIcon": {
-        "backgroundColor": "#162B19",
+        "backgroundColor": "#162F1C",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -34,6 +40,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b0ddb480-c628-4193-ac3d-68654c85d3a2"
+      }
+    },
+    "owner": "nestor1304"
   }
 }

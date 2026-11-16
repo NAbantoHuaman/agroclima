@@ -660,6 +660,8 @@ export function useParcelAnalysis(onNavigateTab: (tab: AppTab) => void) {
     referenceData,
     backendError,
     setBackendError,
+    isBootstrapping,
+    retryBootstrap: bootstrapBackendData,
     isAnalyzing,
     isLocatingGps,
     hasLocatedParcel,

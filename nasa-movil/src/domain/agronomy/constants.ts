@@ -218,39 +218,39 @@ export const SATELLITE_LAYERS: Array<{
   },
   {
     id: "ndvi",
-    label: "NDVI · Salud Vegetal",
-    shortTag: "MODIS / Landsat",
+    label: "Verdor y Salud de Plantas",
+    shortTag: "Sentinel-2",
     polyFill: "rgba(92, 214, 92, 0.52)",
     polyStroke: "#86EFAC",
     explanation:
-      "Mide el verdor y vigor de las plantas desde el espacio. El color verde intenso indica buena cobertura vegetal.",
+      "Muestra qué tan verde y fuerte crece la vegetación desde el satélite. Verde intenso significa buena cobertura vegetal.",
   },
   {
     id: "smap",
-    label: "Humedad de Suelo (SMAP)",
+    label: "Humedad en el Suelo",
     shortTag: "NASA SMAP",
     polyFill: "rgba(56, 189, 248, 0.50)",
     polyStroke: "#7DD3FC",
     explanation:
-      "Mide cuánta agua guarda la tierra en la zona de las raíces para saber si resistirá días sin lluvia.",
+      "Estima cuánta agua guarda la tierra cerca de las raíces para saber si aguantará días sin lluvia.",
   },
   {
     id: "frost",
-    label: "Heladas y Calor (ECOSTRESS)",
-    shortTag: "MODIS / ECOSTRESS",
+    label: "Frío, Heladas y Calor",
+    shortTag: "NASA / ECOSTRESS",
     polyFill: "rgba(251, 191, 36, 0.50)",
     polyStroke: "#FDE68A",
     explanation:
-      "Detecta enfriamiento nocturno (riesgo de helada en madrugada) y estrés por calor al mediodía.",
+      "Avisa si la madrugada enfría mucho (riesgo de helada) o si hace demasiado calor al mediodía.",
   },
   {
     id: "erosion",
-    label: "Pendiente y Erosión (SRTM)",
-    shortTag: "NASA SRTM DEM",
+    label: "Inclinación y Cuidado del Suelo",
+    shortTag: "Relieve NASA",
     polyFill: "rgba(167, 139, 250, 0.48)",
     polyStroke: "#DDD6FE",
     explanation:
-      "Evalúa la inclinación de tu terreno para evitar que las lluvias fuertes laven la capa fértil del suelo.",
+      "Mide la inclinación de tu terreno para cuidar la tierra fértil y evitar que las lluvias fuertes la laven.",
   },
 ];
 

@@ -839,49 +839,49 @@ def _build_explainability_blocks(
             )
         )
         nasa_ev = (
-            f"NASA POWER registra una temperatura mínima de {bio_sum['min_temp_c']} °C en {bio_sum['min_temp_month']} "
-            f"(riesgo de helada en {frost_list_str}) y precipitación anual de {bio_sum['annual_precip_mm']:.0f} mm frente a "
-            f"una evapotranspiración (ET0) de {bio_sum['annual_et0_mm']:.0f} mm. El modelo detecta {bio_sum['bare_soil_month_count']} meses "
-            f"con suelo desnudo (NDVI < 0.25 en {bare_list_str}) y el relieve mide {terrain['elevation_m']:.0f} m s.n.m. con {terrain['slope_pct']:.1f}% "
-            f"de pendiente expuesta a lluvias intensas ({storm_list_str}).{scenario_tag}"
+            f"Los datos climáticos (NASA POWER) registran mínimas de {bio_sum['min_temp_c']} °C en {bio_sum['min_temp_month']} "
+            f"(riesgo de helada en {frost_list_str}) y lluvias de {bio_sum['annual_precip_mm']:.0f} mm al año frente a "
+            f"un consumo natural de agua por sol y viento (ET0) de {bio_sum['annual_et0_mm']:.0f} mm. Además detecta {bio_sum['bare_soil_month_count']} meses "
+            f"con tierra descubierta (NDVI < 0.25 en {bare_list_str}) sobre {terrain['elevation_m']:.0f} m s.n.m. con {terrain['slope_pct']:.1f}% "
+            f"de inclinación expuesta a aguaceros ({storm_list_str}).{scenario_tag}"
         )
         benefits_summary = (
-            f"Sin ahorro de agua respecto al manejo actual; balance estimado de nitrógeno negativo ({n_balance:+.0f} kg/ha en 24 meses) "
-            f"y vulnerabilidad climática de {vulnerability_score:.0f}/100 por exposición a sequía, heladas y pérdida de capa arable."
+            f"Sin ahorro de agua respecto al manejo actual; pérdida estimada de nitrógeno ({n_balance:+.0f} kg/ha en 2 años) "
+            f"y riesgo climático de {vulnerability_score:.0f}/100 por sequía, heladas y lavado de tierra fértil."
         )
     elif strategy_id == "resilience":
         why = (
-            f"Diseñada para maximizar su prioridad en {top1} y {top2} para {market_lbl} con {equip_lbl}, bajo {water_lbl}.{season_note} "
-            f"Combina cultivos rústicos de baja demanda hídrica y alta tolerancia al frío ({main_pair}) "
-            f"e inserta {cover_name} en los meses secos para frenar la erosión y producir heno/ensilaje.{soil_context_str}"
+            f"Pensada para priorizar {top1} y {top2} hacia {market_lbl} usando {equip_lbl}, con {water_lbl}.{season_note} "
+            f"Combina cultivos resistentes que necesitan menos agua y soportan mejor el frío ({main_pair}), "
+            f"e incluye {cover_name} en meses secos para proteger el suelo y dar forraje.{soil_context_str}"
         )
         nasa_ev = (
-            f"La serie biofísica identifica una ventana crítica de suelo desnudo (NDVI < 0.25) en {bare_list_str}; "
-            f"humedad superficial baja en {', '.join(bio_sum['dry_anomaly_months']) or 'estiaje'} "
-            f"y NASA POWER alerta mínimas de {sim_sum['min_temp_c']} °C ({frost_list_str}). "
-            f"Con {terrain['slope_pct']:.1f}% de pendiente a {terrain['elevation_m']:.0f} m y tormentas ({storm_list_str}), "
-            f"cubrir el suelo con {cover_name} reduce drásticamente el lavado superficial.{scenario_tag}"
+            f"Los registros satelitales muestran la tierra descubierta (NDVI < 0.25) durante {bare_list_str}, "
+            f"baja humedad superficial en {', '.join(bio_sum['dry_anomaly_months']) or 'meses secos'} "
+            f"y mínimas de {sim_sum['min_temp_c']} °C (NASA POWER, {frost_list_str}). "
+            f"Con {terrain['slope_pct']:.1f}% de inclinación a {terrain['elevation_m']:.0f} m y lluvias fuertes ({storm_list_str}), "
+            f"cubrir el terreno con {cover_name} evita que el agua lave la tierra fértil.{scenario_tag}"
         )
         benefits_summary = (
-            f"Ahorro hídrico estimado de {water_savings_pct:.0f}%, reducción de riesgo de erosión en {erosion_reduction_pct:.0f}%, "
-            f"{bare_months_avoided} meses adicionales de cobertura viva y mejora de +{pest_reduction_pct:.0f} pts en corte de plagas."
+            f"Ahorro estimado de agua de {water_savings_pct:.0f}%, reducción de lavado de suelo en {erosion_reduction_pct:.0f}%, "
+            f"{bare_months_avoided} meses más con el suelo cubierto y +{pest_reduction_pct:.0f} pts en corte de plagas."
         )
     else:
         why = (
-            f"Optimiza el equilibrio entre {top1} y {top2}, ajustado para {market_lbl} con {equip_lbl}.{season_note} "
-            f"Introduce una leguminosa andina fijadora de nitrógeno ({legume_name}) "
-            f"acompañada de cobertura protectora ({cover_name}) para reconstruir fertilidad orgánica, cortar de raíz al gorgojo de los Andes "
-            f"y la rancha de la papa, y habilitar la rotación ({followup_crop}) adaptada a {water_lbl}.{soil_context_str}"
+            f"Equilibra {top1} y {top2} para {market_lbl} usando {equip_lbl}.{season_note} "
+            f"Alterna una leguminosa andina que devuelve nitrógeno natural ({legume_name}) "
+            f"con cobertura verde protectora ({cover_name}) para recuperar fertilidad, cortar plagas como el gorgojo de los Andes "
+            f"y la rancha, y preparar el siguiente cultivo ({followup_crop}) con {water_lbl}.{soil_context_str}"
         )
         nasa_ev = (
-            f"A partir de NASA POWER ({bio_sum['annual_precip_mm']:.0f} mm/año, mín. {sim_sum['min_temp_c']} °C), "
-            f"el relieve ({terrain['elevation_m']:.0f} m s.n.m., {terrain['slope_pct']:.1f}% pendiente) y la caída estacional de verdor "
-            f"y humedad entre mayo y septiembre, el motor selecciona especies adaptadas al piso altitudinal que aprovechan las lluvias "
-            f"de campaña mientras protegen el suelo durante {bare_list_str} sin sobrecargar la demanda hídrica.{scenario_tag}"
+            f"Según el clima local de NASA POWER ({bio_sum['annual_precip_mm']:.0f} mm/año, mín. {sim_sum['min_temp_c']} °C), "
+            f"la altura y ladera ({terrain['elevation_m']:.0f} m s.n.m., {terrain['slope_pct']:.1f}% inclinación) y la bajada de humedad "
+            f"entre mayo y septiembre, elegimos cultivos de tu piso altitudinal que aprovechan las lluvias "
+            f"y protegen la tierra durante {bare_list_str} sin exigir agua extra.{scenario_tag}"
         )
         benefits_summary = (
-            f"Balance positivo estimado de +{max(0.0, n_balance):.0f} kg N/ha, índice de materia orgánica {om_delta:+.0f} pts, "
-            f"ahorro de agua de {water_savings_pct:.0f}%, reducción de erosión de {erosion_reduction_pct:.0f}% y corte sanitario +{pest_reduction_pct:.0f} pts."
+            f"Ganancia estimada de +{max(0.0, n_balance):.0f} kg N/ha en el suelo, mejora de materia orgánica {om_delta:+.0f} pts, "
+            f"ahorro de agua de {water_savings_pct:.0f}%, menos lavado de suelo ({erosion_reduction_pct:.0f}%) y corte de plagas +{pest_reduction_pct:.0f} pts."
         )
 
     equip_gap = (
