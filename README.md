@@ -10,7 +10,7 @@
 > **Important Note for Judges:** This project is a **standalone Android mobile app (`.apk`)**, not a web portal. It is pre-configured to connect automatically to our live cloud backend (`https://agroclima-fx55.onrender.com`), so no local server setup is required to evaluate it.
 
 - **Download AgroConecta Android APK (Google Drive):**  
-  👉 **[Download AgroConecta (.apk)](https://drive.google.com/file/d/1KQt2DYrc6DtFzzlZJWGhHbMwHmoXUW15/view?usp=drive_link)**
+  👉 **[Download AgroConecta (.apk)](https://drive.google.com/file/d/1KQt2DYrc6DtFzzlZJWGhHbMwHmoXUW15/view?usp=sharing)**
 - **Live Cloud API Documentation (Swagger / Render):** https://agroclima-fx55.onrender.com/docs
 
 ---
@@ -19,7 +19,7 @@
 
 ### 1. Download and Install the `.apk`
 1. Open the Google Drive download link above on an Android phone:  
-   `https://drive.google.com/file/d/1KQt2DYrc6DtFzzlZJWGhHbMwHmoXUW15/view?usp=drive_link`
+   `https://drive.google.com/file/d/1KQt2DYrc6DtFzzlZJWGhHbMwHmoXUW15/view?usp=sharing`
 2. Download the `.apk` file and tap it to launch the Android package installer.
 3. If Android asks permission to install apps outside Google Play (*"For your security, your phone isn't allowed to install unknown apps from this source"*), tap **Settings** and enable **Allow from this source**.
 
